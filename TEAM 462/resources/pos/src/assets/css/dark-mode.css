@@ -1,0 +1,2303 @@
+/* Dark Mode - Harmonisé avec le système de couleurs _variables.scss */
+
+/* Variables CSS pour le mode sombre - basées sur _variables.scss */
+:root {
+    /* Couleurs de base du thème sombre */
+    --dark-body-bg: #13151F;           /* $body-bg en mode sombre */
+    --dark-page-body-bg: #060917;      /* $page-body-bg en mode sombre */
+    --dark-card-bg: #1D1F28;           /* $gray-100 en mode sombre */
+    --dark-border-color: #262832;      /* $gray-200 en mode sombre */
+    --dark-text-color: #FFFFFF;        /* $dark en mode sombre */
+    --dark-muted-color: #ADB5BD;       /* $gray en mode sombre */
+    
+    /* Couleurs primaires */
+    --dark-primary: #6571FF;           /* $primary */
+    --dark-primary-hover: #848DFF;     /* $cyan-400 en mode sombre */
+    --dark-primary-light: #262832;     /* $cyan-100 en mode sombre */
+    
+    /* Couleurs de gris */
+    --dark-gray-100: #1D1F28;          /* $gray-100 en mode sombre */
+    --dark-gray-200: #262832;          /* $gray-200 en mode sombre */
+    --dark-gray-300: #495057;          /* $gray-300 en mode sombre */
+    --dark-gray-400: #6C757D;          /* $gray-400 en mode sombre */
+    --dark-gray-600: #6C757E;          /* $gray-600 en mode sombre */
+    --dark-gray-700: #DEE2E6;          /* $gray-700 en mode sombre */
+    --dark-gray-800: #E9ECEF;          /* $gray-800 en mode sombre */
+    --dark-gray-900: #FFFFFF;          /* $gray-900 en mode sombre */
+    
+    /* Couleurs sémantiques */
+    --dark-success: #0AC074;           /* $success */
+    --dark-info: #0099FB;              /* $info */
+    --dark-warning: #FFB821;           /* $warning */
+    --dark-danger: #F62947;            /* $danger */
+    
+    /* Override des variables Bootstrap */
+    --bs-body-bg: var(--dark-body-bg) !important;
+    --bs-body-bg-rgb: 19, 21, 31 !important;
+    --bs-body-color: var(--dark-text-color) !important;
+    --bs-body-color-rgb: 255, 255, 255 !important;
+    --bs-border-color: var(--dark-border-color) !important;
+    --bs-border-color-rgb: 38, 40, 50 !important;
+    --bs-heading-color: var(--dark-text-color) !important;
+    --bs-link-color: var(--dark-primary) !important;
+    --bs-link-hover-color: var(--dark-primary-hover) !important;
+}
+
+/* Override des éléments principaux */
+body {
+    background-color: var(--dark-body-bg) !important;
+    color: var(--dark-text-color) !important;
+}
+
+/* React Pro Sidebar - Override complet */
+.pro-sidebar {
+    background-color: var(--dark-card-bg) !important;
+    border-right: 1px solid var(--dark-border-color) !important;
+}
+
+.pro-sidebar-inner {
+    background-color: var(--dark-card-bg) !important;
+}
+
+.pro-sidebar-header {
+    background-color: var(--dark-gray-200) !important;
+    border-bottom: 1px solid var(--dark-border-color) !important;
+}
+
+.pro-sidebar-content {
+    background-color: var(--dark-card-bg) !important;
+}
+
+.pro-menu {
+    background-color: var(--dark-card-bg) !important;
+}
+
+.pro-menu-item {
+    background-color: var(--dark-card-bg) !important;
+    color: var(--dark-text-color) !important;
+}
+
+.pro-menu-item:hover {
+    background-color: var(--dark-gray-200) !important;
+    color: var(--dark-text-color) !important;
+}
+
+.pro-menu-item.pro-sub-menu > .pro-inner-item {
+    background-color: var(--dark-card-bg) !important;
+    color: var(--dark-text-color) !important;
+}
+
+.pro-menu-item.pro-sub-menu > .pro-inner-item:hover {
+    background-color: var(--dark-gray-200) !important;
+    color: var(--dark-text-color) !important;
+}
+
+.pro-inner-item {
+    background-color: var(--dark-card-bg) !important;
+    color: var(--dark-text-color) !important;
+}
+
+.pro-inner-item:hover {
+    background-color: var(--dark-gray-200) !important;
+    color: var(--dark-text-color) !important;
+}
+
+.pro-icon-wrapper {
+    background-color: transparent !important;
+    color: var(--dark-text-color) !important;
+}
+
+.pro-item-content {
+    color: var(--dark-text-color) !important;
+}
+
+.pro-arrow-wrapper {
+    color: var(--dark-text-color) !important;
+}
+
+/* Override des cartes */
+.card {
+    background-color: var(--dark-card-bg) !important;
+    border-color: var(--dark-border-color) !important;
+}
+
+.card-header {
+    background-color: var(--dark-gray-200) !important;
+    border-bottom-color: var(--dark-border-color) !important;
+}
+
+/* Override de la sidebar */
+.aside-menu-container {
+    background-color: var(--dark-card-bg) !important;
+}
+
+/* Override des tableaux */
+.table {
+    background-color: var(--dark-card-bg) !important;
+    color: var(--dark-text-color) !important;
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) > * {
+    background-color: var(--dark-gray-200) !important;
+}
+
+.table > thead > tr > th {
+    background-color: var(--dark-gray-200) !important;
+    color: var(--dark-text-color) !important;
+}
+
+/* Override des formulaires */
+.form-control {
+    background-color: var(--dark-gray-200) !important;
+    border-color: var(--dark-gray-300) !important;
+    color: var(--dark-text-color) !important;
+}
+
+.form-control:focus {
+    background-color: var(--dark-gray-200) !important;
+    border-color: var(--dark-primary) !important;
+    color: var(--dark-text-color) !important;
+}
+
+/* Override des dropdowns */
+.dropdown-menu {
+    background-color: var(--dark-card-bg) !important;
+    border-color: var(--dark-border-color) !important;
+}
+
+.dropdown-item {
+    color: var(--dark-text-color) !important;
+}
+
+.dropdown-item:hover {
+    background-color: var(--dark-gray-200) !important;
+    color: var(--dark-text-color) !important;
+}
+
+/* Override des modales */
+.modal-content {
+    background-color: var(--dark-card-bg) !important;
+    border-color: var(--dark-border-color) !important;
+}
+
+.modal-header {
+    background-color: var(--dark-gray-200) !important;
+    border-bottom-color: var(--dark-border-color) !important;
+}
+
+.modal-footer {
+    background-color: var(--dark-gray-200) !important;
+    border-top-color: var(--dark-border-color) !important;
+}
+
+/* Override des couleurs de fond */
+.bg-white {
+    background-color: var(--dark-body-bg) !important;
+}
+
+.bg-light {
+    background-color: var(--dark-card-bg) !important;
+}
+
+/* Override des textes */
+.text-dark {
+    color: var(--dark-text-color) !important;
+}
+
+.text-muted {
+    color: var(--dark-muted-color) !important;
+}
+
+/* Override des bordures */
+.border {
+    border-color: var(--dark-border-color) !important;
+}
+
+/* Override des titres */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--dark-text-color) !important;
+}
+
+/* Override de la navbar */
+.navbar {
+    background-color: var(--dark-card-bg) !important;
+}
+
+/* Override du contenu principal */
+.content {
+    background-color: var(--dark-body-bg) !important;
+}
+
+.wrapper {
+    background-color: var(--dark-body-bg) !important;
+}
+
+.wrapper-res {
+    background-color: var(--dark-body-bg) !important;
+}
+
+/* Override des widgets */
+.widget {
+    background-color: var(--dark-card-bg) !important;
+}
+
+/* Override des listes */
+.list-group-item {
+    background-color: var(--dark-card-bg) !important;
+    border-color: var(--dark-border-color) !important;
+    color: var(--dark-text-color) !important;
+}
+
+/* Override des alertes */
+.alert {
+    background-color: var(--dark-card-bg) !important;
+    border-color: var(--dark-border-color) !important;
+    color: var(--dark-text-color) !important;
+}
+
+/* Override des badges */
+.badge {
+    background-color: var(--dark-gray-200) !important;
+}
+
+/* Override des tooltips */
+.tooltip-inner {
+    background-color: var(--dark-card-bg) !important;
+    color: var(--dark-text-color) !important;
+}
+
+/* Override des popovers */
+.popover {
+    background-color: var(--dark-card-bg) !important;
+    border-color: var(--dark-border-color) !important;
+}
+
+.popover-header {
+    background-color: var(--dark-gray-200) !important;
+    border-bottom-color: var(--dark-border-color) !important;
+    color: var(--dark-text-color) !important;
+}
+
+.popover-body {
+    color: var(--dark-text-color) !important;
+}
+
+/* Override des boutons */
+.btn-light {
+    background-color: var(--dark-gray-200) !important;
+    border-color: var(--dark-gray-300) !important;
+    color: var(--dark-text-color) !important;
+}
+
+.btn-light:hover {
+    background-color: var(--dark-gray-300) !important;
+    border-color: var(--dark-gray-400) !important;
+    color: var(--dark-text-color) !important;
+}
+
+/* Override des inputs de recherche */
+.search-input {
+    background-color: var(--dark-gray-200) !important;
+    border-color: var(--dark-gray-300) !important;
+    color: var(--dark-text-color) !important;
+}
+
+/* Override des icônes */
+.fs-1, .fs-2, .fs-3, .fs-4, .fs-5, .fs-6 {
+    color: var(--dark-text-color) !important;
+}
+
+/* Override des liens */
+a {
+    color: var(--dark-primary) !important;
+}
+
+a:hover {
+    color: var(--dark-primary-hover) !important;
+}
+
+/* Override des éléments de navigation */
+.nav-link {
+    color: var(--dark-text-color) !important;
+}
+
+.nav-link:hover {
+    color: var(--dark-primary) !important;
+}
+
+/* Override des éléments de pagination */
+.page-link {
+    background-color: var(--dark-card-bg) !important;
+    border-color: var(--dark-border-color) !important;
+    color: var(--dark-text-color) !important;
+}
+
+.page-link:hover {
+    background-color: var(--dark-gray-200) !important;
+    color: var(--dark-text-color) !important;
+}
+
+.page-item.active .page-link {
+    background-color: var(--dark-primary) !important;
+    border-color: var(--dark-primary) !important;
+}
+
+/* Override des éléments de sélection */
+.select2-container--default .select2-selection--single {
+    background-color: var(--dark-gray-200) !important;
+    border-color: var(--dark-gray-300) !important;
+    color: var(--dark-text-color) !important;
+}
+
+.select2-container--default .select2-results__option {
+    background-color: var(--dark-card-bg) !important;
+    color: var(--dark-text-color) !important;
+}
+
+.select2-container--default .select2-results__option--highlighted {
+    background-color: var(--dark-gray-200) !important;
+    color: var(--dark-text-color) !important;
+}
+
+/* Override des éléments de date */
+.datepicker {
+    background-color: var(--dark-card-bg) !important;
+    border-color: var(--dark-border-color) !important;
+}
+
+.datepicker table tr td {
+    background-color: var(--dark-gray-200) !important;
+    color: var(--dark-text-color) !important;
+}
+
+.datepicker table tr td:hover {
+    background-color: var(--dark-gray-300) !important;
+    color: var(--dark-text-color) !important;
+}
+
+/* Override des éléments de graphiques */
+.chart-container {
+    background-color: var(--dark-card-bg) !important;
+}
+
+/* Override des éléments de statistiques */
+.stats-card {
+    background-color: var(--dark-card-bg) !important;
+    border-color: var(--dark-border-color) !important;
+}
+
+/* Override des éléments de notification */
+.notification-item {
+    background-color: var(--dark-card-bg) !important;
+    border-color: var(--dark-border-color) !important;
+    color: var(--dark-text-color) !important;
+}
+
+/* Override des éléments de profil */
+.profile-card {
+    background-color: var(--dark-card-bg) !important;
+    border-color: var(--dark-border-color) !important;
+}
+
+/* Override des éléments de paramètres */
+.settings-panel {
+    background-color: var(--dark-card-bg) !important;
+    border-color: var(--dark-border-color) !important;
+}
+
+/* Override des éléments de rapport */
+.report-container {
+    background-color: var(--dark-card-bg) !important;
+    border-color: var(--dark-border-color) !important;
+}
+
+/* Override des éléments de vente */
+.sale-item {
+    background-color: var(--dark-card-bg) !important;
+    border-color: var(--dark-border-color) !important;
+    color: var(--dark-text-color) !important;
+}
+
+/* Override des éléments de produit */
+.product-card {
+    background-color: var(--dark-card-bg) !important;
+    border-color: var(--dark-border-color) !important;
+}
+
+/* Override des éléments de client */
+.customer-card {
+    background-color: var(--dark-card-bg) !important;
+    border-color: var(--dark-border-color) !important;
+}
+
+/* Override des éléments de fournisseur */
+.supplier-card {
+    background-color: var(--dark-card-bg) !important;
+    border-color: var(--dark-border-color) !important;
+}
+
+/* Override des éléments de stock */
+.stock-item {
+    background-color: var(--dark-card-bg) !important;
+    border-color: var(--dark-border-color) !important;
+    color: var(--dark-text-color) !important;
+}
+
+/* Override des éléments de transfert */
+.transfer-item {
+    background-color: var(--dark-card-bg) !important;
+    border-color: var(--dark-border-color) !important;
+    color: var(--dark-text-color) !important;
+}
+
+/* Override des éléments de dépense */
+.expense-item {
+    background-color: var(--dark-card-bg) !important;
+    border-color: var(--dark-border-color) !important;
+    color: var(--dark-text-color) !important;
+}
+
+/* Override des éléments de devis */
+.quotation-item {
+    background-color: var(--dark-card-bg) !important;
+    border-color: var(--dark-border-color) !important;
+    color: var(--dark-text-color) !important;
+}
+
+/* Override des éléments de retour */
+.return-item {
+    background-color: var(--dark-card-bg) !important;
+    border-color: var(--dark-border-color) !important;
+    color: var(--dark-text-color) !important;
+}
+
+/* Override des éléments de catégorie */
+.category-item {
+    background-color: var(--dark-card-bg) !important;
+    border-color: var(--dark-border-color) !important;
+    color: var(--dark-text-color) !important;
+}
+
+/* Override des éléments de marque */
+.brand-item {
+    background-color: var(--dark-card-bg) !important;
+    border-color: var(--dark-border-color) !important;
+    color: var(--dark-text-color) !important;
+}
+
+/* Override des éléments d'unité */
+.unit-item {
+    background-color: var(--dark-card-bg) !important;
+    border-color: var(--dark-border-color) !important;
+    color: var(--dark-text-color) !important;
+}
+
+/* Override des éléments de devise */
+.currency-item {
+    background-color: var(--dark-card-bg) !important;
+    border-color: var(--dark-border-color) !important;
+    color: var(--dark-text-color) !important;
+}
+
+/* Override des éléments de langue */
+.language-item {
+    background-color: var(--dark-card-bg) !important;
+    border-color: var(--dark-border-color) !important;
+    color: var(--dark-text-color) !important;
+}
+
+/* Override des éléments de rôle */
+.role-item {
+    background-color: var(--dark-card-bg) !important;
+    border-color: var(--dark-border-color) !important;
+    color: var(--dark-text-color) !important;
+}
+
+/* Override des éléments d'utilisateur */
+.user-item {
+    background-color: var(--dark-card-bg) !important;
+    border-color: var(--dark-border-color) !important;
+    color: var(--dark-text-color) !important;
+}
+
+/* Override des éléments d'ajustement */
+.adjustment-item {
+    background-color: var(--dark-card-bg) !important;
+    border-color: var(--dark-border-color) !important;
+    color: var(--dark-text-color) !important;
+}
+
+/* Override des éléments d'entrepôt */
+.warehouse-item {
+    background-color: var(--dark-card-bg) !important;
+    border-color: var(--dark-border-color) !important;
+    color: var(--dark-text-color) !important;
+}
+
+/* Override des éléments de variation */
+.variation-item {
+    background-color: var(--dark-card-bg) !important;
+    border-color: var(--dark-border-color) !important;
+    color: var(--dark-text-color) !important;
+}
+
+/* Override des éléments de base-unit */
+.base-unit-item {
+    background-color: var(--dark-card-bg) !important;
+    border-color: var(--dark-border-color) !important;
+    color: var(--dark-text-color) !important;
+}
+
+/* Override des éléments de SMS */
+.sms-item {
+    background-color: var(--dark-card-bg) !important;
+    border-color: var(--dark-border-color) !important;
+    color: var(--dark-text-color) !important;
+}
+
+/* Override des éléments d'email */
+.email-item {
+    background-color: var(--dark-card-bg) !important;
+    border-color: var(--dark-border-color) !important;
+    color: var(--dark-text-color) !important;
+}
+
+/* Override des éléments de paramètres */
+.setting-item {
+    background-color: var(--dark-card-bg) !important;
+    border-color: var(--dark-border-color) !important;
+    color: var(--dark-text-color) !important;
+}
+
+/* Override des éléments de profil utilisateur */
+.user-profile-item {
+    background-color: var(--dark-card-bg) !important;
+    border-color: var(--dark-border-color) !important;
+    color: var(--dark-text-color) !important;
+}
+
+/* Override des éléments d'impression */
+.print-item {
+    background-color: var(--dark-card-bg) !important;
+    border-color: var(--dark-border-color) !important;
+    color: var(--dark-text-color) !important;
+}
+
+/* Override des éléments de caisse */
+.pos-register-item {
+    background-color: var(--dark-card-bg) !important;
+    border-color: var(--dark-border-color) !important;
+    color: var(--dark-text-color) !important;
+}
+
+/* Override des éléments de footer */
+.footer {
+    background-color: var(--dark-card-bg) !important;
+    border-top-color: var(--dark-border-color) !important;
+    color: var(--dark-text-color) !important;
+}
+
+/* Override des éléments de header */
+.header {
+    background-color: var(--dark-card-bg) !important;
+    border-bottom-color: var(--dark-border-color) !important;
+}
+
+/* Override des éléments de conteneur */
+.container-fluid {
+    background-color: var(--dark-body-bg) !important;
+}
+
+/* Override des éléments de ligne */
+.row {
+    background-color: transparent !important;
+}
+
+/* Override des éléments de colonne */
+.col, .col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12 {
+    background-color: transparent !important;
+}
+
+/* Override des éléments de grille */
+.grid-item {
+    background-color: var(--dark-card-bg) !important;
+    border-color: var(--dark-border-color) !important;
+}
+
+/* Override des éléments de flexbox */
+.d-flex {
+    background-color: transparent !important;
+}
+
+/* Override des éléments de positionnement */
+.position-relative, .position-absolute, .position-fixed, .position-sticky {
+    background-color: transparent !important;
+}
+
+/* Override des éléments de visibilité */
+.d-none, .d-block, .d-inline, .d-inline-block {
+    background-color: transparent !important;
+}
+
+/* Override des éléments de taille */
+.w-100, .h-100, .w-auto, .h-auto {
+    background-color: transparent !important;
+}
+
+/* Override des éléments de marge et padding */
+.m-0, .p-0, .m-1, .p-1, .m-2, .p-2, .m-3, .p-3, .m-4, .p-4, .m-5, .p-5 {
+    background-color: transparent !important;
+}
+
+/* Override des éléments de texte */
+.text-center, .text-left, .text-right, .text-justify {
+    background-color: transparent !important;
+}
+
+/* Override des éléments d'alignement */
+.align-items-center, .align-items-start, .align-items-end {
+    background-color: transparent !important;
+}
+
+.justify-content-center, .justify-content-start, .justify-content-end, .justify-content-between {
+    background-color: transparent !important;
+}
+
+/* Override des éléments de flexibilité */
+.flex-row, .flex-column, .flex-wrap, .flex-nowrap {
+    background-color: transparent !important;
+}
+
+/* Override des éléments de débordement */
+.overflow-auto, .overflow-hidden, .overflow-visible, .overflow-scroll {
+    background-color: transparent !important;
+}
+
+/* Override des éléments de curseur */
+.cursor-pointer, .cursor-default, .cursor-not-allowed {
+    background-color: transparent !important;
+}
+
+/* Override des éléments de transition */
+.transition, .transition-all, .transition-colors, .transition-opacity {
+    background-color: transparent !important;
+}
+
+/* Override des éléments de transformation */
+.transform, .scale, .rotate, .translate {
+    background-color: transparent !important;
+}
+
+/* Override des éléments d'ombre */
+.shadow, .shadow-sm, .shadow-lg {
+    background-color: transparent !important;
+}
+
+/* Override des éléments de bordure */
+.rounded, .rounded-sm, .rounded-lg, .rounded-circle {
+    background-color: transparent !important;
+}
+
+/* Override des éléments de z-index */
+.z-index-0, .z-index-1, .z-index-2, .z-index-3 {
+    background-color: transparent !important;
+}
+
+/* Override des éléments de position */
+.top-0, .bottom-0, .start-0, .end-0 {
+    background-color: transparent !important;
+}
+
+/* Override des éléments de taille d'écran */
+.d-sm-none, .d-md-none, .d-lg-none, .d-xl-none {
+    background-color: transparent !important;
+}
+
+.d-sm-block, .d-md-block, .d-lg-block, .d-xl-block {
+    background-color: transparent !important;
+}
+
+/* Override des éléments de grille responsive */
+.col-sm, .col-md, .col-lg, .col-xl {
+    background-color: transparent !important;
+}
+
+/* Override des éléments de marge responsive */
+.m-sm-0, .m-md-0, .m-lg-0, .m-xl-0 {
+    background-color: transparent !important;
+}
+
+.p-sm-0, .p-md-0, .p-lg-0, .p-xl-0 {
+    background-color: transparent !important;
+}
+
+/* Override des éléments de texte responsive */
+.text-sm-center, .text-md-center, .text-lg-center, .text-xl-center {
+    background-color: transparent !important;
+}
+
+/* Override des éléments d'alignement responsive */
+.align-items-sm-center, .align-items-md-center, .align-items-lg-center, .align-items-xl-center {
+    background-color: transparent !important;
+}
+
+.justify-content-sm-center, .justify-content-md-center, .justify-content-lg-center, .justify-content-xl-center {
+    background-color: transparent !important;
+}
+
+/* Override des éléments de flexibilité responsive */
+.flex-sm-row, .flex-md-row, .flex-lg-row, .flex-xl-row {
+    background-color: transparent !important;
+}
+
+.flex-sm-column, .flex-md-column, .flex-lg-column, .flex-xl-column {
+    background-color: transparent !important;
+}
+
+/* Override des éléments de débordement responsive */
+.overflow-sm-auto, .overflow-md-auto, .overflow-lg-auto, .overflow-xl-auto {
+    background-color: transparent !important;
+}
+
+/* Override des éléments de curseur responsive */
+.cursor-sm-pointer, .cursor-md-pointer, .cursor-lg-pointer, .cursor-xl-pointer {
+    background-color: transparent !important;
+}
+
+/* Override des éléments de transition responsive */
+.transition-sm, .transition-md, .transition-lg, .transition-xl {
+    background-color: transparent !important;
+}
+
+/* Override des éléments de transformation responsive */
+.transform-sm, .transform-md, .transform-lg, .transform-xl {
+    background-color: transparent !important;
+}
+
+/* Override des éléments d'ombre responsive */
+.shadow-sm, .shadow-md, .shadow-lg, .shadow-xl {
+    background-color: transparent !important;
+}
+
+/* Override des éléments de bordure responsive */
+.rounded-sm, .rounded-md, .rounded-lg, .rounded-xl {
+    background-color: transparent !important;
+}
+
+/* Override des éléments de z-index responsive */
+.z-index-sm-0, .z-index-md-0, .z-index-lg-0, .z-index-xl-0 {
+    background-color: transparent !important;
+}
+
+/* Override des éléments de position responsive */
+.top-sm-0, .top-md-0, .top-lg-0, .top-xl-0 {
+    background-color: transparent !important;
+}
+
+.bottom-sm-0, .bottom-md-0, .bottom-lg-0, .bottom-xl-0 {
+    background-color: transparent !important;
+}
+
+.start-sm-0, .start-md-0, .start-lg-0, .start-xl-0 {
+    background-color: transparent !important;
+}
+
+.end-sm-0, .end-md-0, .end-lg-0, .end-xl-0 {
+    background-color: transparent !important;
+}
+
+/* Override des éléments de taille d'écran responsive */
+.d-xxl-none, .d-xxl-block {
+    background-color: transparent !important;
+}
+
+/* Override des éléments de grille responsive */
+.col-xxl {
+    background-color: transparent !important;
+}
+
+/* Override des éléments de marge responsive */
+.m-xxl-0, .p-xxl-0 {
+    background-color: transparent !important;
+}
+
+/* Override des éléments de texte responsive */
+.text-xxl-center {
+    background-color: transparent !important;
+}
+
+/* Override des éléments d'alignement responsive */
+.align-items-xxl-center, .justify-content-xxl-center {
+    background-color: transparent !important;
+}
+
+/* Override des éléments de flexibilité responsive */
+.flex-xxl-row, .flex-xxl-column {
+    background-color: transparent !important;
+}
+
+/* Override des éléments de débordement responsive */
+.overflow-xxl-auto {
+    background-color: transparent !important;
+}
+
+/* Override des éléments de curseur responsive */
+.cursor-xxl-pointer {
+    background-color: transparent !important;
+}
+
+/* Override des éléments de transition responsive */
+.transition-xxl {
+    background-color: transparent !important;
+}
+
+/* Override des éléments de transformation responsive */
+.transform-xxl {
+    background-color: transparent !important;
+}
+
+/* Override des éléments d'ombre responsive */
+.shadow-xxl {
+    background-color: transparent !important;
+}
+
+/* Override des éléments de bordure responsive */
+.rounded-xxl {
+    background-color: transparent !important;
+}
+
+/* Override des éléments de z-index responsive */
+.z-index-xxl-0 {
+    background-color: transparent !important;
+}
+
+/* Override des éléments de position responsive */
+.top-xxl-0, .bottom-xxl-0, .start-xxl-0, .end-xxl-0 {
+    background-color: transparent !important;
+}
+
+/* ===== COMPOSANTS MANQUANTS ===== */
+
+/* Override des composants de tableau React DataTable */
+.react-data-table {
+    background-color: var(--dark-card-bg) !important;
+}
+
+.react-data-table .rdt_Table {
+    background-color: var(--dark-card-bg) !important;
+}
+
+.react-data-table .rdt_TableHead {
+    background-color: var(--dark-gray-200) !important;
+}
+
+.react-data-table .rdt_TableHead .rdt_TableCol {
+    background-color: var(--dark-gray-200) !important;
+    color: var(--dark-text-color) !important;
+    border-color: var(--dark-border-color) !important;
+}
+
+.react-data-table .rdt_TableBody .rdt_TableRow {
+    background-color: var(--dark-card-bg) !important;
+    color: var(--dark-text-color) !important;
+}
+
+.react-data-table .rdt_TableBody .rdt_TableRow:hover {
+    background-color: var(--dark-gray-200) !important;
+}
+
+.react-data-table .rdt_TableBody .rdt_TableCell {
+    background-color: var(--dark-card-bg) !important;
+    color: var(--dark-text-color) !important;
+    border-color: var(--dark-border-color) !important;
+}
+
+/* Override FORCÉ pour tous les tableaux - Sélecteurs plus spécifiques */
+table, .table {
+    background-color: var(--dark-card-bg) !important;
+    color: var(--dark-text-color) !important;
+}
+
+table *, .table * {
+    background-color: inherit !important;
+    color: inherit !important;
+}
+
+table thead, .table thead {
+    background-color: var(--dark-gray-200) !important;
+    color: var(--dark-text-color) !important;
+}
+
+table thead th, .table thead th {
+    background-color: var(--dark-gray-200) !important;
+    color: var(--dark-text-color) !important;
+    border-color: var(--dark-border-color) !important;
+}
+
+table tbody, .table tbody {
+    background-color: var(--dark-card-bg) !important;
+    color: var(--dark-text-color) !important;
+}
+
+table tbody tr, .table tbody tr {
+    background-color: var(--dark-card-bg) !important;
+    color: var(--dark-text-color) !important;
+}
+
+table tbody tr:hover, .table tbody tr:hover {
+    background-color: var(--dark-gray-200) !important;
+    color: var(--dark-text-color) !important;
+}
+
+table tbody tr:nth-child(even), .table tbody tr:nth-child(even) {
+    background-color: var(--dark-gray-100) !important;
+    color: var(--dark-text-color) !important;
+}
+
+table tbody tr:nth-child(odd), .table tbody tr:nth-child(odd) {
+    background-color: var(--dark-card-bg) !important;
+    color: var(--dark-text-color) !important;
+}
+
+table tbody td, .table tbody td {
+    background-color: inherit !important;
+    color: var(--dark-text-color) !important;
+    border-color: var(--dark-border-color) !important;
+}
+
+table tbody th, .table tbody th {
+    background-color: inherit !important;
+    color: var(--dark-text-color) !important;
+    border-color: var(--dark-border-color) !important;
+}
+
+/* Override pour les tableaux avec classes spécifiques */
+.table-striped > tbody > tr:nth-of-type(odd) > * {
+    background-color: var(--dark-card-bg) !important;
+    color: var(--dark-text-color) !important;
+}
+
+.table-striped > tbody > tr:nth-of-type(even) > * {
+    background-color: var(--dark-gray-100) !important;
+    color: var(--dark-text-color) !important;
+}
+
+.table-hover > tbody > tr:hover > * {
+    background-color: var(--dark-gray-200) !important;
+    color: var(--dark-text-color) !important;
+}
+
+/* Override pour les tableaux Bootstrap */
+.table-bordered {
+    border-color: var(--dark-border-color) !important;
+}
+
+.table-bordered > thead > tr > th,
+.table-bordered > tbody > tr > th,
+.table-bordered > tfoot > tr > th,
+.table-bordered > thead > tr > td,
+.table-bordered > tbody > tr > td,
+.table-bordered > tfoot > tr > td {
+    border-color: var(--dark-border-color) !important;
+}
+
+/* Override pour les tableaux de données */
+.dataTable {
+    background-color: var(--dark-card-bg) !important;
+    color: var(--dark-text-color) !important;
+}
+
+.dataTable thead th {
+    background-color: var(--dark-gray-200) !important;
+    color: var(--dark-text-color) !important;
+    border-color: var(--dark-border-color) !important;
+}
+
+.dataTable tbody td {
+    background-color: var(--dark-card-bg) !important;
+    color: var(--dark-text-color) !important;
+    border-color: var(--dark-border-color) !important;
+}
+
+.dataTable tbody tr:hover td {
+    background-color: var(--dark-gray-200) !important;
+    color: var(--dark-text-color) !important;
+}
+
+/* Override pour les tableaux de produits */
+.product-table,
+.sales-table,
+.purchase-table,
+.customer-table,
+.supplier-table,
+.user-table,
+.category-table,
+.brand-table,
+.unit-table,
+.warehouse-table {
+    background-color: var(--dark-card-bg) !important;
+    color: var(--dark-text-color) !important;
+}
+
+.product-table thead th,
+.sales-table thead th,
+.purchase-table thead th,
+.customer-table thead th,
+.supplier-table thead th,
+.user-table thead th,
+.category-table thead th,
+.brand-table thead th,
+.unit-table thead th,
+.warehouse-table thead th {
+    background-color: var(--dark-gray-200) !important;
+    color: var(--dark-text-color) !important;
+    border-color: var(--dark-border-color) !important;
+}
+
+.product-table tbody td,
+.sales-table tbody td,
+.purchase-table tbody td,
+.customer-table tbody td,
+.supplier-table tbody td,
+.user-table tbody td,
+.category-table tbody td,
+.brand-table tbody td,
+.unit-table tbody td,
+.warehouse-table tbody td {
+    background-color: var(--dark-card-bg) !important;
+    color: var(--dark-text-color) !important;
+    border-color: var(--dark-border-color) !important;
+}
+
+.product-table tbody tr:hover td,
+.sales-table tbody tr:hover td,
+.purchase-table tbody tr:hover td,
+.customer-table tbody tr:hover td,
+.supplier-table tbody tr:hover td,
+.user-table tbody tr:hover td,
+.category-table tbody tr:hover td,
+.brand-table tbody tr:hover td,
+.unit-table tbody tr:hover td,
+.warehouse-table tbody tr:hover td {
+    background-color: var(--dark-gray-200) !important;
+    color: var(--dark-text-color) !important;
+}
+
+/* Override pour les cellules spécifiques */
+td, th {
+    background-color: inherit !important;
+    color: var(--dark-text-color) !important;
+    border-color: var(--dark-border-color) !important;
+}
+
+/* Override pour les lignes de tableau */
+tr {
+    background-color: inherit !important;
+    color: var(--dark-text-color) !important;
+}
+
+/* Override pour les en-têtes de tableau */
+thead {
+    background-color: var(--dark-gray-200) !important;
+    color: var(--dark-text-color) !important;
+}
+
+/* Override pour le corps du tableau */
+tbody {
+    background-color: var(--dark-card-bg) !important;
+    color: var(--dark-text-color) !important;
+}
+
+/* Override ULTRA SPÉCIFIQUE pour forcer les couleurs des tableaux */
+body table,
+body .table,
+body div table,
+body div .table,
+body .card table,
+body .card .table,
+body .modal table,
+body .modal .table,
+body .container table,
+body .container .table,
+body .container-fluid table,
+body .container-fluid .table {
+    background-color: var(--dark-card-bg) !important;
+    color: var(--dark-text-color) !important;
+}
+
+body table thead,
+body .table thead,
+body div table thead,
+body div .table thead,
+body .card table thead,
+body .card .table thead,
+body .modal table thead,
+body .modal .table thead {
+    background-color: var(--dark-gray-200) !important;
+    color: var(--dark-text-color) !important;
+}
+
+body table thead th,
+body .table thead th,
+body div table thead th,
+body div .table thead th,
+body .card table thead th,
+body .card .table thead th,
+body .modal table thead th,
+body .modal .table thead th {
+    background-color: var(--dark-gray-200) !important;
+    color: var(--dark-text-color) !important;
+    border-color: var(--dark-border-color) !important;
+}
+
+body table tbody,
+body .table tbody,
+body div table tbody,
+body div .table tbody,
+body .card table tbody,
+body .card .table tbody,
+body .modal table tbody,
+body .modal .table tbody {
+    background-color: var(--dark-card-bg) !important;
+    color: var(--dark-text-color) !important;
+}
+
+body table tbody tr,
+body .table tbody tr,
+body div table tbody tr,
+body div .table tbody tr,
+body .card table tbody tr,
+body .card .table tbody tr,
+body .modal table tbody tr,
+body .modal .table tbody tr {
+    background-color: var(--dark-card-bg) !important;
+    color: var(--dark-text-color) !important;
+}
+
+body table tbody tr:hover,
+body .table tbody tr:hover,
+body div table tbody tr:hover,
+body div .table tbody tr:hover,
+body .card table tbody tr:hover,
+body .card .table tbody tr:hover,
+body .modal table tbody tr:hover,
+body .modal .table tbody tr:hover {
+    background-color: var(--dark-gray-200) !important;
+    color: var(--dark-text-color) !important;
+}
+
+body table tbody td,
+body .table tbody td,
+body div table tbody td,
+body div .table tbody td,
+body .card table tbody td,
+body .card .table tbody td,
+body .modal table tbody td,
+body .modal .table tbody td {
+    background-color: inherit !important;
+    color: var(--dark-text-color) !important;
+    border-color: var(--dark-border-color) !important;
+}
+
+body table tbody th,
+body .table tbody th,
+body div table tbody th,
+body div .table tbody th,
+body .card table tbody th,
+body .card .table tbody th,
+body .modal table tbody th,
+body .modal .table tbody th {
+    background-color: inherit !important;
+    color: var(--dark-text-color) !important;
+    border-color: var(--dark-border-color) !important;
+}
+
+/* Override pour les tableaux avec des classes Bootstrap spécifiques */
+body .table-striped > tbody > tr:nth-of-type(odd) > *,
+body div .table-striped > tbody > tr:nth-of-type(odd) > *,
+body .card .table-striped > tbody > tr:nth-of-type(odd) > * {
+    background-color: var(--dark-card-bg) !important;
+    color: var(--dark-text-color) !important;
+}
+
+body .table-striped > tbody > tr:nth-of-type(even) > *,
+body div .table-striped > tbody > tr:nth-of-type(even) > *,
+body .card .table-striped > tbody > tr:nth-of-type(even) > * {
+    background-color: var(--dark-gray-100) !important;
+    color: var(--dark-text-color) !important;
+}
+
+body .table-hover > tbody > tr:hover > *,
+body div .table-hover > tbody > tr:hover > *,
+body .card .table-hover > tbody > tr:hover > * {
+    background-color: var(--dark-gray-200) !important;
+    color: var(--dark-text-color) !important;
+}
+
+/* Override pour les tableaux de données React */
+body [class*="rdt_Table"],
+body div [class*="rdt_Table"],
+body .card [class*="rdt_Table"] {
+    background-color: var(--dark-card-bg) !important;
+    color: var(--dark-text-color) !important;
+}
+
+body [class*="rdt_TableHead"],
+body div [class*="rdt_TableHead"],
+body .card [class*="rdt_TableHead"] {
+    background-color: var(--dark-gray-200) !important;
+    color: var(--dark-text-color) !important;
+}
+
+body [class*="rdt_TableCol"],
+body div [class*="rdt_TableCol"],
+body .card [class*="rdt_TableCol"] {
+    background-color: var(--dark-gray-200) !important;
+    color: var(--dark-text-color) !important;
+    border-color: var(--dark-border-color) !important;
+}
+
+body [class*="rdt_TableBody"],
+body div [class*="rdt_TableBody"],
+body .card [class*="rdt_TableBody"] {
+    background-color: var(--dark-card-bg) !important;
+    color: var(--dark-text-color) !important;
+}
+
+body [class*="rdt_TableRow"],
+body div [class*="rdt_TableRow"],
+body .card [class*="rdt_TableRow"] {
+    background-color: var(--dark-card-bg) !important;
+    color: var(--dark-text-color) !important;
+}
+
+body [class*="rdt_TableCell"],
+body div [class*="rdt_TableCell"],
+body .card [class*="rdt_TableCell"] {
+    background-color: var(--dark-card-bg) !important;
+    color: var(--dark-text-color) !important;
+    border-color: var(--dark-border-color) !important;
+}
+
+/* Override pour les tableaux avec des IDs spécifiques */
+body #dataTable,
+body #productTable,
+body #userTable,
+body #customerTable,
+body #supplierTable,
+body #salesTable,
+body #purchaseTable {
+    background-color: var(--dark-card-bg) !important;
+    color: var(--dark-text-color) !important;
+}
+
+body #dataTable thead,
+body #productTable thead,
+body #userTable thead,
+body #customerTable thead,
+body #supplierTable thead,
+body #salesTable thead,
+body #purchaseTable thead {
+    background-color: var(--dark-gray-200) !important;
+    color: var(--dark-text-color) !important;
+}
+
+body #dataTable tbody,
+body #productTable tbody,
+body #userTable tbody,
+body #customerTable tbody,
+body #supplierTable tbody,
+body #salesTable tbody,
+body #purchaseTable tbody {
+    background-color: var(--dark-card-bg) !important;
+    color: var(--dark-text-color) !important;
+}
+
+/* Override ULTRA SPÉCIFIQUE avec sélecteurs d'attributs */
+html body table,
+html body .table,
+html body div table,
+html body div .table,
+html body .card table,
+html body .card .table,
+html body .modal table,
+html body .modal .table,
+html body .container table,
+html body .container .table,
+html body .container-fluid table,
+html body .container-fluid .table {
+    background-color: var(--dark-card-bg) !important;
+    color: var(--dark-text-color) !important;
+}
+
+html body table thead,
+html body .table thead,
+html body div table thead,
+html body div .table thead,
+html body .card table thead,
+html body .card .table thead,
+html body .modal table thead,
+html body .modal .table thead {
+    background-color: var(--dark-gray-200) !important;
+    color: var(--dark-text-color) !important;
+}
+
+html body table thead th,
+html body .table thead th,
+html body div table thead th,
+html body div .table thead th,
+html body .card table thead th,
+html body .card .table thead th,
+html body .modal table thead th,
+html body .modal .table thead th {
+    background-color: var(--dark-gray-200) !important;
+    color: var(--dark-text-color) !important;
+    border-color: var(--dark-border-color) !important;
+}
+
+html body table tbody,
+html body .table tbody,
+html body div table tbody,
+html body div .table tbody,
+html body .card table tbody,
+html body .card .table tbody,
+html body .modal table tbody,
+html body .modal .table tbody {
+    background-color: var(--dark-card-bg) !important;
+    color: var(--dark-text-color) !important;
+}
+
+html body table tbody tr,
+html body .table tbody tr,
+html body div table tbody tr,
+html body div .table tbody tr,
+html body .card table tbody tr,
+html body .card .table tbody tr,
+html body .modal table tbody tr,
+html body .modal .table tbody tr {
+    background-color: var(--dark-card-bg) !important;
+    color: var(--dark-text-color) !important;
+}
+
+html body table tbody tr:hover,
+html body .table tbody tr:hover,
+html body div table tbody tr:hover,
+html body div .table tbody tr:hover,
+html body .card table tbody tr:hover,
+html body .card .table tbody tr:hover,
+html body .modal table tbody tr:hover,
+html body .modal .table tbody tr:hover {
+    background-color: var(--dark-gray-200) !important;
+    color: var(--dark-text-color) !important;
+}
+
+html body table tbody td,
+html body .table tbody td,
+html body div table tbody td,
+html body div .table tbody td,
+html body .card table tbody td,
+html body .card .table tbody td,
+html body .modal table tbody td,
+html body .modal .table tbody td {
+    background-color: inherit !important;
+    color: var(--dark-text-color) !important;
+    border-color: var(--dark-border-color) !important;
+}
+
+html body table tbody th,
+html body .table tbody th,
+html body div table tbody th,
+html body div .table tbody th,
+html body .card table tbody th,
+html body .card .table tbody th,
+html body .modal table tbody th,
+html body .modal .table tbody th {
+    background-color: inherit !important;
+    color: var(--dark-text-color) !important;
+    border-color: var(--dark-border-color) !important;
+}
+
+/* Override pour les tableaux avec des classes Bootstrap spécifiques - ULTRA SPÉCIFIQUE */
+html body .table-striped > tbody > tr:nth-of-type(odd) > *,
+html body div .table-striped > tbody > tr:nth-of-type(odd) > *,
+html body .card .table-striped > tbody > tr:nth-of-type(odd) > * {
+    background-color: var(--dark-card-bg) !important;
+    color: var(--dark-text-color) !important;
+}
+
+html body .table-striped > tbody > tr:nth-of-type(even) > *,
+html body div .table-striped > tbody > tr:nth-of-type(even) > *,
+html body .card .table-striped > tbody > tr:nth-of-type(even) > * {
+    background-color: var(--dark-gray-100) !important;
+    color: var(--dark-text-color) !important;
+}
+
+html body .table-hover > tbody > tr:hover > *,
+html body div .table-hover > tbody > tr:hover > *,
+html body .card .table-hover > tbody > tr:hover > * {
+    background-color: var(--dark-gray-200) !important;
+    color: var(--dark-text-color) !important;
+}
+
+/* Override pour les tableaux de données React - ULTRA SPÉCIFIQUE */
+html body [class*="rdt_Table"],
+html body div [class*="rdt_Table"],
+html body .card [class*="rdt_Table"] {
+    background-color: var(--dark-card-bg) !important;
+    color: var(--dark-text-color) !important;
+}
+
+html body [class*="rdt_TableHead"],
+html body div [class*="rdt_TableHead"],
+html body .card [class*="rdt_TableHead"] {
+    background-color: var(--dark-gray-200) !important;
+    color: var(--dark-text-color) !important;
+}
+
+html body [class*="rdt_TableCol"],
+html body div [class*="rdt_TableCol"],
+html body .card [class*="rdt_TableCol"] {
+    background-color: var(--dark-gray-200) !important;
+    color: var(--dark-text-color) !important;
+    border-color: var(--dark-border-color) !important;
+}
+
+html body [class*="rdt_TableBody"],
+html body div [class*="rdt_TableBody"],
+html body .card [class*="rdt_TableBody"] {
+    background-color: var(--dark-card-bg) !important;
+    color: var(--dark-text-color) !important;
+}
+
+html body [class*="rdt_TableRow"],
+html body div [class*="rdt_TableRow"],
+html body .card [class*="rdt_TableRow"] {
+    background-color: var(--dark-card-bg) !important;
+    color: var(--dark-text-color) !important;
+}
+
+html body [class*="rdt_TableCell"],
+html body div [class*="rdt_TableCell"],
+html body .card [class*="rdt_TableCell"] {
+    background-color: var(--dark-card-bg) !important;
+    color: var(--dark-text-color) !important;
+    border-color: var(--dark-border-color) !important;
+}
+
+/* Override pour les tableaux avec des IDs spécifiques - ULTRA SPÉCIFIQUE */
+html body #dataTable,
+html body #productTable,
+html body #userTable,
+html body #customerTable,
+html body #supplierTable,
+html body #salesTable,
+html body #purchaseTable {
+    background-color: var(--dark-card-bg) !important;
+    color: var(--dark-text-color) !important;
+}
+
+html body #dataTable thead,
+html body #productTable thead,
+html body #userTable thead,
+html body #customerTable thead,
+html body #supplierTable thead,
+html body #salesTable thead,
+html body #purchaseTable thead {
+    background-color: var(--dark-gray-200) !important;
+    color: var(--dark-text-color) !important;
+}
+
+html body #dataTable tbody,
+html body #productTable tbody,
+html body #userTable tbody,
+html body #customerTable tbody,
+html body #supplierTable tbody,
+html body #salesTable tbody,
+html body #purchaseTable tbody {
+    background-color: var(--dark-card-bg) !important;
+    color: var(--dark-text-color) !important;
+}
+
+/* Override pour les cellules et lignes spécifiques - ULTRA SPÉCIFIQUE */
+html body td,
+html body th,
+html body div td,
+html body div th,
+html body .card td,
+html body .card th,
+html body .modal td,
+html body .modal th {
+    background-color: inherit !important;
+    color: var(--dark-text-color) !important;
+    border-color: var(--dark-border-color) !important;
+}
+
+html body tr,
+html body div tr,
+html body .card tr,
+html body .modal tr {
+    background-color: inherit !important;
+    color: var(--dark-text-color) !important;
+}
+
+html body thead,
+html body div thead,
+html body .card thead,
+html body .modal thead {
+    background-color: var(--dark-gray-200) !important;
+    color: var(--dark-text-color) !important;
+}
+
+html body tbody,
+html body div tbody,
+html body .card tbody,
+html body .modal tbody {
+    background-color: var(--dark-card-bg) !important;
+    color: var(--dark-text-color) !important;
+}
+
+/* Override des composants Select React-Select */
+.react-select__control {
+    background-color: var(--dark-gray-200) !important;
+    border-color: var(--dark-gray-300) !important;
+    color: var(--dark-text-color) !important;
+}
+
+.react-select__control:hover {
+    border-color: var(--dark-primary) !important;
+}
+
+.react-select__control--is-focused {
+    border-color: var(--dark-primary) !important;
+    box-shadow: 0 0 0 1px var(--dark-primary) !important;
+}
+
+.react-select__menu {
+    background-color: var(--dark-card-bg) !important;
+    border-color: var(--dark-border-color) !important;
+}
+
+.react-select__option {
+    background-color: var(--dark-card-bg) !important;
+    color: var(--dark-text-color) !important;
+}
+
+.react-select__option:hover {
+    background-color: var(--dark-gray-200) !important;
+}
+
+.react-select__option--is-focused {
+    background-color: var(--dark-gray-200) !important;
+}
+
+.react-select__option--is-selected {
+    background-color: var(--dark-primary) !important;
+    color: var(--dark-text-color) !important;
+}
+
+.react-select__single-value {
+    color: var(--dark-text-color) !important;
+}
+
+.react-select__input-container {
+    color: var(--dark-text-color) !important;
+}
+
+.react-select__placeholder {
+    color: var(--dark-muted-color) !important;
+}
+
+/* Override des composants Toast */
+.toast-card {
+    background-color: var(--dark-card-bg) !important;
+    border-color: var(--dark-border-color) !important;
+    color: var(--dark-text-color) !important;
+}
+
+.toast-card__toast-title {
+    color: var(--dark-text-color) !important;
+}
+
+.toast-card__toast-message {
+    color: var(--dark-muted-color) !important;
+}
+
+.toast-card__close-btn {
+    color: var(--dark-text-color) !important;
+}
+
+.toast-card__icon--success {
+    color: var(--dark-success) !important;
+}
+
+.toast-card__icon--error {
+    color: var(--dark-danger) !important;
+}
+
+/* Override des composants de recherche */
+.searchBox {
+    background-color: transparent !important;
+}
+
+.searchBox input {
+    background-color: var(--dark-gray-200) !important;
+    border-color: var(--dark-gray-300) !important;
+    color: var(--dark-text-color) !important;
+}
+
+.searchBox input:focus {
+    background-color: var(--dark-gray-200) !important;
+    border-color: var(--dark-primary) !important;
+    color: var(--dark-text-color) !important;
+}
+
+.searchBox .text-gray-600 {
+    color: var(--dark-muted-color) !important;
+}
+
+/* Override des composants de filtre */
+.filter-component {
+    background-color: transparent !important;
+}
+
+.filter-component select {
+    background-color: var(--dark-gray-200) !important;
+    border-color: var(--dark-gray-300) !important;
+    color: var(--dark-text-color) !important;
+}
+
+.filter-component select:focus {
+    background-color: var(--dark-gray-200) !important;
+    border-color: var(--dark-primary) !important;
+    color: var(--dark-text-color) !important;
+}
+
+/* Override des composants de datepicker */
+.react-datepicker {
+    background-color: var(--dark-card-bg) !important;
+    border-color: var(--dark-border-color) !important;
+}
+
+.react-datepicker__header {
+    background-color: var(--dark-gray-200) !important;
+    border-bottom-color: var(--dark-border-color) !important;
+}
+
+.react-datepicker__current-month {
+    color: var(--dark-text-color) !important;
+}
+
+.react-datepicker__day-name {
+    color: var(--dark-text-color) !important;
+}
+
+.react-datepicker__day {
+    background-color: var(--dark-card-bg) !important;
+    color: var(--dark-text-color) !important;
+}
+
+.react-datepicker__day:hover {
+    background-color: var(--dark-gray-200) !important;
+}
+
+.react-datepicker__day--selected {
+    background-color: var(--dark-primary) !important;
+    color: var(--dark-text-color) !important;
+}
+
+.react-datepicker__day--keyboard-selected {
+    background-color: var(--dark-primary) !important;
+    color: var(--dark-text-color) !important;
+}
+
+.react-datepicker__navigation {
+    color: var(--dark-text-color) !important;
+}
+
+/* Override des composants de pagination */
+.pagination {
+    background-color: transparent !important;
+}
+
+.pagination .page-item .page-link {
+    background-color: var(--dark-card-bg) !important;
+    border-color: var(--dark-border-color) !important;
+    color: var(--dark-text-color) !important;
+}
+
+.pagination .page-item .page-link:hover {
+    background-color: var(--dark-gray-200) !important;
+    color: var(--dark-text-color) !important;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: var(--dark-primary) !important;
+    border-color: var(--dark-primary) !important;
+    color: var(--dark-text-color) !important;
+}
+
+.pagination .page-item.disabled .page-link {
+    background-color: var(--dark-gray-200) !important;
+    color: var(--dark-muted-color) !important;
+}
+
+/* Override des composants de loader */
+.spinner-border {
+    color: var(--dark-primary) !important;
+}
+
+.spinner-grow {
+    color: var(--dark-primary) !important;
+}
+
+.progress {
+    background-color: var(--dark-gray-200) !important;
+}
+
+.progress-bar {
+    background-color: var(--dark-primary) !important;
+}
+
+/* Override des composants de breadcrumb */
+.breadcrumb {
+    background-color: transparent !important;
+}
+
+.breadcrumb-item {
+    color: var(--dark-muted-color) !important;
+}
+
+.breadcrumb-item.active {
+    color: var(--dark-primary) !important;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+    color: var(--dark-muted-color) !important;
+}
+
+/* Override des composants de tabs */
+.nav-tabs {
+    border-bottom-color: var(--dark-border-color) !important;
+}
+
+.nav-tabs .nav-link {
+    background-color: transparent !important;
+    border-color: var(--dark-border-color) !important;
+    color: var(--dark-text-color) !important;
+}
+
+.nav-tabs .nav-link:hover {
+    background-color: var(--dark-gray-200) !important;
+    border-color: var(--dark-gray-300) !important;
+    color: var(--dark-text-color) !important;
+}
+
+.nav-tabs .nav-link.active {
+    background-color: var(--dark-card-bg) !important;
+    border-color: var(--dark-border-color) !important;
+    color: var(--dark-primary) !important;
+}
+
+/* Override des composants de accordion */
+.accordion {
+    background-color: var(--dark-card-bg) !important;
+}
+
+.accordion-item {
+    background-color: var(--dark-card-bg) !important;
+    border-color: var(--dark-border-color) !important;
+}
+
+.accordion-button {
+    background-color: var(--dark-card-bg) !important;
+    color: var(--dark-text-color) !important;
+}
+
+.accordion-button:hover {
+    background-color: var(--dark-gray-200) !important;
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: var(--dark-gray-200) !important;
+    color: var(--dark-primary) !important;
+}
+
+.accordion-body {
+    background-color: var(--dark-card-bg) !important;
+    color: var(--dark-text-color) !important;
+}
+
+/* Override des composants de carousel */
+.carousel {
+    background-color: var(--dark-card-bg) !important;
+}
+
+.carousel-item {
+    background-color: var(--dark-card-bg) !important;
+}
+
+.carousel-caption {
+    background-color: rgba(0, 0, 0, 0.5) !important;
+    color: var(--dark-text-color) !important;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    background-color: rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Override des composants de tooltip */
+.tooltip {
+    background-color: var(--dark-card-bg) !important;
+}
+
+.tooltip-inner {
+    background-color: var(--dark-card-bg) !important;
+    color: var(--dark-text-color) !important;
+}
+
+.tooltip.bs-tooltip-top .tooltip-arrow::before {
+    border-top-color: var(--dark-card-bg) !important;
+}
+
+.tooltip.bs-tooltip-bottom .tooltip-arrow::before {
+    border-bottom-color: var(--dark-card-bg) !important;
+}
+
+.tooltip.bs-tooltip-start .tooltip-arrow::before {
+    border-left-color: var(--dark-card-bg) !important;
+}
+
+.tooltip.bs-tooltip-end .tooltip-arrow::before {
+    border-right-color: var(--dark-card-bg) !important;
+}
+
+/* Override des composants de popover */
+.popover {
+    background-color: var(--dark-card-bg) !important;
+    border-color: var(--dark-border-color) !important;
+}
+
+.popover-header {
+    background-color: var(--dark-gray-200) !important;
+    border-bottom-color: var(--dark-border-color) !important;
+    color: var(--dark-text-color) !important;
+}
+
+.popover-body {
+    background-color: var(--dark-card-bg) !important;
+    color: var(--dark-text-color) !important;
+}
+
+/* Override des composants de switch */
+.form-switch .form-check-input {
+    background-color: var(--dark-gray-300) !important;
+    border-color: var(--dark-gray-300) !important;
+}
+
+.form-switch .form-check-input:checked {
+    background-color: var(--dark-primary) !important;
+    border-color: var(--dark-primary) !important;
+}
+
+/* Override des composants de range */
+.form-range::-webkit-slider-track {
+    background-color: var(--dark-gray-200) !important;
+}
+
+.form-range::-webkit-slider-thumb {
+    background-color: var(--dark-primary) !important;
+}
+
+.form-range::-moz-range-track {
+    background-color: var(--dark-gray-200) !important;
+}
+
+.form-range::-moz-range-thumb {
+    background-color: var(--dark-primary) !important;
+}
+
+/* Override des composants de file input */
+.form-control[type="file"] {
+    background-color: var(--dark-gray-200) !important;
+    border-color: var(--dark-gray-300) !important;
+    color: var(--dark-text-color) !important;
+}
+
+.form-control[type="file"]::file-selector-button {
+    background-color: var(--dark-gray-300) !important;
+    color: var(--dark-text-color) !important;
+}
+
+/* Override des composants de color input */
+.form-control[type="color"] {
+    background-color: var(--dark-gray-200) !important;
+    border-color: var(--dark-gray-300) !important;
+}
+
+/* Override des composants de image picker */
+.image-picker {
+    background-color: var(--dark-card-bg) !important;
+    border-color: var(--dark-border-color) !important;
+}
+
+.image-picker .previewImage {
+    background-color: var(--dark-gray-200) !important;
+    border-color: var(--dark-border-color) !important;
+}
+
+.image-picker .picker-edit {
+    background-color: var(--dark-gray-200) !important;
+    border-color: var(--dark-gray-300) !important;
+    color: var(--dark-text-color) !important;
+}
+
+/* Override des composants de multiple image */
+.multiple-image {
+    background-color: var(--dark-card-bg) !important;
+    border-color: var(--dark-border-color) !important;
+}
+
+.multiple-image .image-item {
+    background-color: var(--dark-gray-200) !important;
+    border-color: var(--dark-border-color) !important;
+}
+
+/* Override des composants de product search */
+.product-search {
+    background-color: var(--dark-card-bg) !important;
+    border-color: var(--dark-border-color) !important;
+}
+
+.product-search .search-results {
+    background-color: var(--dark-card-bg) !important;
+    border-color: var(--dark-border-color) !important;
+}
+
+.product-search .search-result-item {
+    background-color: var(--dark-gray-200) !important;
+    color: var(--dark-text-color) !important;
+}
+
+.product-search .search-result-item:hover {
+    background-color: var(--dark-gray-300) !important;
+}
+
+/* Override des composants de product cart */
+.product-cart {
+    background-color: var(--dark-card-bg) !important;
+    border-color: var(--dark-border-color) !important;
+}
+
+.product-cart .cart-item {
+    background-color: var(--dark-gray-200) !important;
+    border-color: var(--dark-border-color) !important;
+    color: var(--dark-text-color) !important;
+}
+
+.product-cart .cart-total {
+    background-color: var(--dark-gray-200) !important;
+    border-color: var(--dark-border-color) !important;
+    color: var(--dark-text-color) !important;
+}
+
+/* Override des composants de sales table */
+.sales-table {
+    background-color: var(--dark-card-bg) !important;
+}
+
+.sales-table .product-row {
+    background-color: var(--dark-gray-200) !important;
+    border-color: var(--dark-border-color) !important;
+    color: var(--dark-text-color) !important;
+}
+
+/* Override des composants de purchase table */
+.purchase-table {
+    background-color: var(--dark-card-bg) !important;
+}
+
+.purchase-table .product-row {
+    background-color: var(--dark-gray-200) !important;
+    border-color: var(--dark-border-color) !important;
+    color: var(--dark-text-color) !important;
+}
+
+/* Override des composants de transfer table */
+.transfer-table {
+    background-color: var(--dark-card-bg) !important;
+}
+
+.transfer-table .product-row {
+    background-color: var(--dark-gray-200) !important;
+    border-color: var(--dark-border-color) !important;
+    color: var(--dark-text-color) !important;
+}
+
+/* Override des composants de adjustment table */
+.adjustment-table {
+    background-color: var(--dark-card-bg) !important;
+}
+
+.adjustment-table .product-row {
+    background-color: var(--dark-gray-200) !important;
+    border-color: var(--dark-border-color) !important;
+    color: var(--dark-text-color) !important;
+}
+
+/* Override des composants de chart */
+.chart-container {
+    background-color: var(--dark-card-bg) !important;
+}
+
+.chart-container canvas {
+    background-color: var(--dark-card-bg) !important;
+}
+
+/* Override des composants de dashboard widgets */
+.dashboard-widget {
+    background-color: var(--dark-card-bg) !important;
+    border-color: var(--dark-border-color) !important;
+}
+
+.dashboard-widget .widget-header {
+    background-color: var(--dark-gray-200) !important;
+    border-bottom-color: var(--dark-border-color) !important;
+    color: var(--dark-text-color) !important;
+}
+
+.dashboard-widget .widget-body {
+    background-color: var(--dark-card-bg) !important;
+    color: var(--dark-text-color) !important;
+}
+
+/* Override des composants de stats card */
+.stats-card {
+    background-color: var(--dark-card-bg) !important;
+    border-color: var(--dark-border-color) !important;
+}
+
+.stats-card .stats-icon {
+    background-color: var(--dark-primary) !important;
+    color: var(--dark-text-color) !important;
+}
+
+.stats-card .stats-value {
+    color: var(--dark-text-color) !important;
+}
+
+.stats-card .stats-label {
+    color: var(--dark-muted-color) !important;
+}
+
+/* Override des composants de recent activity */
+.recent-activity {
+    background-color: var(--dark-card-bg) !important;
+    border-color: var(--dark-border-color) !important;
+}
+
+.recent-activity .activity-item {
+    background-color: var(--dark-gray-200) !important;
+    border-color: var(--dark-border-color) !important;
+    color: var(--dark-text-color) !important;
+}
+
+/* Override des composants de notification */
+.notification-item {
+    background-color: var(--dark-card-bg) !important;
+    border-color: var(--dark-border-color) !important;
+    color: var(--dark-text-color) !important;
+}
+
+.notification-item:hover {
+    background-color: var(--dark-gray-200) !important;
+}
+
+/* Override des composants de user profile */
+.user-profile {
+    background-color: var(--dark-card-bg) !important;
+    border-color: var(--dark-border-color) !important;
+}
+
+.user-profile .profile-header {
+    background-color: var(--dark-gray-200) !important;
+    border-bottom-color: var(--dark-border-color) !important;
+    color: var(--dark-text-color) !important;
+}
+
+.user-profile .profile-body {
+    background-color: var(--dark-card-bg) !important;
+    color: var(--dark-text-color) !important;
+}
+
+/* Override des composants de settings panel */
+.settings-panel {
+    background-color: var(--dark-card-bg) !important;
+    border-color: var(--dark-border-color) !important;
+}
+
+.settings-panel .settings-header {
+    background-color: var(--dark-gray-200) !important;
+    border-bottom-color: var(--dark-border-color) !important;
+    color: var(--dark-text-color) !important;
+}
+
+.settings-panel .settings-body {
+    background-color: var(--dark-card-bg) !important;
+    color: var(--dark-text-color) !important;
+}
+
+/* Override des composants de language selector */
+.language-selector {
+    background-color: var(--dark-card-bg) !important;
+    border-color: var(--dark-border-color) !important;
+}
+
+.language-selector .language-option {
+    background-color: var(--dark-gray-200) !important;
+    color: var(--dark-text-color) !important;
+}
+
+.language-selector .language-option:hover {
+    background-color: var(--dark-gray-300) !important;
+}
+
+.language-selector .language-option.active {
+    background-color: var(--dark-primary) !important;
+    color: var(--dark-text-color) !important;
+}
+
+/* Override des composants de currency selector */
+.currency-selector {
+    background-color: var(--dark-card-bg) !important;
+    border-color: var(--dark-border-color) !important;
+}
+
+.currency-selector .currency-option {
+    background-color: var(--dark-gray-200) !important;
+    color: var(--dark-text-color) !important;
+}
+
+.currency-selector .currency-option:hover {
+    background-color: var(--dark-gray-300) !important;
+}
+
+.currency-selector .currency-option.active {
+    background-color: var(--dark-primary) !important;
+    color: var(--dark-text-color) !important;
+}
+
+/* Override des composants de warehouse selector */
+.warehouse-selector {
+    background-color: var(--dark-card-bg) !important;
+    border-color: var(--dark-border-color) !important;
+}
+
+.warehouse-selector .warehouse-option {
+    background-color: var(--dark-gray-200) !important;
+    color: var(--dark-text-color) !important;
+}
+
+.warehouse-selector .warehouse-option:hover {
+    background-color: var(--dark-gray-300) !important;
+}
+
+.warehouse-selector .warehouse-option.active {
+    background-color: var(--dark-primary) !important;
+    color: var(--dark-text-color) !important;
+}
+
+/* Override des composants de print */
+.print-container {
+    background-color: var(--dark-card-bg) !important;
+    border-color: var(--dark-border-color) !important;
+}
+
+.print-container .print-header {
+    background-color: var(--dark-gray-200) !important;
+    border-bottom-color: var(--dark-border-color) !important;
+    color: var(--dark-text-color) !important;
+}
+
+.print-container .print-body {
+    background-color: var(--dark-card-bg) !important;
+    color: var(--dark-text-color) !important;
+}
+
+/* Override des composants de barcode */
+.barcode-container {
+    background-color: var(--dark-card-bg) !important;
+    border-color: var(--dark-border-color) !important;
+}
+
+.barcode-container .barcode-item {
+    background-color: var(--dark-gray-200) !important;
+    border-color: var(--dark-border-color) !important;
+    color: var(--dark-text-color) !important;
+}
+
+/* Override des composants de empty state */
+.empty-state {
+    background-color: var(--dark-card-bg) !important;
+    border-color: var(--dark-border-color) !important;
+    color: var(--dark-muted-color) !important;
+}
+
+.empty-state .empty-icon {
+    color: var(--dark-muted-color) !important;
+}
+
+/* Override des composants de loading state */
+.loading-state {
+    background-color: var(--dark-card-bg) !important;
+    border-color: var(--dark-border-color) !important;
+    color: var(--dark-muted-color) !important;
+}
+
+.loading-state .loading-spinner {
+    color: var(--dark-primary) !important;
+}
+
+/* Override des composants de error state */
+.error-state {
+    background-color: var(--dark-card-bg) !important;
+    border-color: var(--dark-border-color) !important;
+    color: var(--dark-danger) !important;
+}
+
+.error-state .error-icon {
+    color: var(--dark-danger) !important;
+}
+
+/* Override des composants de success state */
+.success-state {
+    background-color: var(--dark-card-bg) !important;
+    border-color: var(--dark-border-color) !important;
+    color: var(--dark-success) !important;
+}
+
+.success-state .success-icon {
+    color: var(--dark-success) !important;
+}
+
+/* Override des composants de warning state */
+.warning-state {
+    background-color: var(--dark-card-bg) !important;
+    border-color: var(--dark-border-color) !important;
+    color: var(--dark-warning) !important;
+}
+
+.warning-state .warning-icon {
+    color: var(--dark-warning) !important;
+}
+
+/* Override des composants de info state */
+.info-state {
+    background-color: var(--dark-card-bg) !important;
+    border-color: var(--dark-border-color) !important;
+    color: var(--dark-info) !important;
+}
+
+.info-state .info-icon {
+    color: var(--dark-info) !important;
+}
