@@ -199,8 +199,8 @@ Option 2 : Via le serveur Laravel
 
 ```bash
 # Dans le répertoire du projet
-php artisan serve
-# Puis accédez à http://localhost:8000
+php artisan serve --port=80
+# Puis accédez à http://127.0.0.1:80
 ```
 
 **7. Accès à l'Application**
