@@ -415,6 +415,10 @@ export default [
                 detail: "/app/report/report-detail-stock",
             },
             {
+                title: "Fiche de Stock",
+                to: "/app/report/stock-report-card",
+            },
+            {
                 title: getFormattedMessage("purchase.reports.title"),
                 to: "/app/report/report-purchase",
             },

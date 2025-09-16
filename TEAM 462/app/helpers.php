@@ -108,6 +108,43 @@ if (! function_exists('manageStock')) {
     }
 }
 
+if (! function_exists('manageStockWithMovement')) {
+    /**
+     * Gère le stock et crée automatiquement un mouvement de stock
+     * @param int $warehouseID
+     * @param int $productID
+     * @param float $qty
+     * @param string $movementType
+     * @param float $unitPrice
+     * @param string|null $referenceType
+     * @param int|null $referenceId
+     * @param string|null $notes
+     * @param string|null $movementDate
+     * @return void
+     */
+    function manageStockWithMovement($warehouseID, $productID, $qty = 0, $movementType = 'purchase', $unitPrice = 0, $referenceType = null, $referenceId = null, $notes = null, $movementDate = null)
+    {
+        // Gérer le stock existant
+        manageStock($warehouseID, $productID, $qty);
+        
+        // Créer le mouvement de stock
+        $movementData = [
+            'product_id' => $productID,
+            'warehouse_id' => $warehouseID,
+            'movement_type' => $movementType,
+            'quantity' => abs($qty), // Toujours positif pour la quantité
+            'unit_price' => $unitPrice,
+            'total_price' => abs($qty) * $unitPrice,
+            'reference_type' => $referenceType,
+            'reference_id' => $referenceId,
+            'notes' => $notes,
+            'movement_date' => $movementDate ?: date('Y-m-d'),
+        ];
+        
+        \App\Models\StockMovement::create($movementData);
+    }
+}
+
 if (! function_exists('keyExist')) {
     function keyExist($key)
     {

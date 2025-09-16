@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : dim. 03 août 2025 à 04:44
+-- Généré le : lun. 15 sep. 2025 à 13:58
 -- Version du serveur : 9.1.0
 -- Version de PHP : 8.1.31
 
@@ -902,7 +902,7 @@ CREATE TABLE IF NOT EXISTS `migrations` (
   `migration` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=86 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=88 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `migrations`
@@ -993,7 +993,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (82, '2023_06_16_115153_add_new_field_into_sales_table', 1),
 (83, '2023_07_07_064405_create_coupon_codes_table', 1),
 (84, '2023_07_07_083655_create_coupon_product_table', 1),
-(85, '2023_09_16_000000_rename_password_resets_table', 1);
+(85, '2023_09_16_000000_rename_password_resets_table', 1),
+(86, '2023_11_21_115157_add_manage_variations_permission', 2),
+(87, '2025_09_13_153408_create_stock_movements_table', 3);
 
 -- --------------------------------------------------------
 
@@ -1076,7 +1078,7 @@ CREATE TABLE IF NOT EXISTS `permissions` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `permissions`
@@ -1105,7 +1107,8 @@ INSERT INTO `permissions` (`id`, `name`, `display_name`, `guard_name`, `created_
 (20, 'manage_purchase_return', 'Manage Purchase Return', 'web', '2023-11-03 22:52:45', '2023-11-03 22:52:45'),
 (21, 'manage_sale_return', 'Manage Sale Return', 'web', '2023-11-03 22:52:45', '2023-11-03 22:52:45'),
 (23, 'manage_reports', 'Manage Reports', 'web', '2023-11-03 22:52:45', '2023-11-03 22:52:45'),
-(24, 'manage_quotations', 'Manage Quotations', 'web', '2023-11-03 22:52:45', '2023-11-03 22:52:45');
+(24, 'manage_quotations', 'Manage Quotations', 'web', '2023-11-03 22:52:45', '2023-11-03 22:52:45'),
+(28, 'manage_variations', 'Manage Variations', 'web', '2025-09-13 13:51:16', '2025-09-13 13:51:16');
 
 -- --------------------------------------------------------
 
@@ -1128,7 +1131,7 @@ CREATE TABLE IF NOT EXISTS `personal_access_tokens` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `personal_access_tokens_token_unique` (`token`),
   KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=225 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=258 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `personal_access_tokens`
@@ -1230,7 +1233,26 @@ INSERT INTO `personal_access_tokens` (`id`, `tokenable_type`, `tokenable_id`, `n
 (219, 'App\\Models\\User', 1, 'token', '5ee87cdcc8e37e335cfab13b398afd56445b7304c513e7cf0375241dab4a9c29', '[\"*\"]', '2025-07-31 07:35:21', NULL, '2025-07-31 06:58:50', '2025-07-31 07:35:21'),
 (220, 'App\\Models\\User', 1, 'token', 'f2fe777bd52acb22aa62a0ce982cc2c0a36fc9a83b041a873f75ef6be1f38f1e', '[\"*\"]', '2025-08-02 10:17:34', NULL, '2025-08-02 10:03:09', '2025-08-02 10:17:34'),
 (222, 'App\\Models\\User', 19, 'token', '69712f0831b690f5f43c09a6645c9471a52706e3d7d4b32469523fabcfd39639', '[\"*\"]', '2025-08-02 13:36:36', NULL, '2025-08-02 13:36:34', '2025-08-02 13:36:36'),
-(224, 'App\\Models\\User', 1, 'token', '7ba0145e9ec0ffed6034a6a4633e4df37ca336361767f0c53b35c3d804c163f8', '[\"*\"]', '2025-08-03 02:44:14', NULL, '2025-08-03 02:35:35', '2025-08-03 02:44:14');
+(225, 'App\\Models\\User', 21, 'token', 'db00cc2e75a7f8ca504ba114bc2d9e4f8bab13e4e56df174042018a1e9009659', '[\"*\"]', '2025-08-03 03:04:51', NULL, '2025-08-03 03:04:00', '2025-08-03 03:04:51'),
+(227, 'App\\Models\\User', 21, 'token', '42bd4b892bf5be434efb65ae0f8a19cdb4be70214d90b54d5609ae2ff16460e0', '[\"*\"]', '2025-08-04 05:03:08', NULL, '2025-08-04 05:02:16', '2025-08-04 05:03:08'),
+(228, 'App\\Models\\User', 21, 'token', '6ffc92262cc1ed90ba715f476acb346ef1eca0bdd32b530e15fc4783e7dacc53', '[\"*\"]', '2025-08-04 10:05:01', NULL, '2025-08-04 10:02:27', '2025-08-04 10:05:01'),
+(231, 'App\\Models\\User', 1, 'token', '42ecd501e6347875835d34b9661cd661d1b5f568a5150cb9f74bd5e2b14fb7ad', '[\"*\"]', '2025-08-10 10:24:46', NULL, '2025-08-10 10:15:12', '2025-08-10 10:24:46'),
+(238, 'App\\Models\\User', 1, 'token', 'd16943481a3429d8eafa52f84dbab6a982f707b547700a55aa2d3bd0d7397b0a', '[\"*\"]', '2025-08-10 11:03:36', NULL, '2025-08-10 10:59:53', '2025-08-10 11:03:36'),
+(239, 'App\\Models\\User', 1, 'token', '31b8b573b05e60ade8a9515bdd97273a969f6765a8f8bd7dfd8d3ef702b89797', '[\"*\"]', '2025-08-10 13:09:05', NULL, '2025-08-10 13:09:02', '2025-08-10 13:09:05'),
+(240, 'App\\Models\\User', 1, 'token', '93448ff0acce2c385d9df4d4f1da2f263ada77e9c52f2af861ef2485f2355cb6', '[\"*\"]', '2025-08-10 13:15:46', NULL, '2025-08-10 13:15:40', '2025-08-10 13:15:46'),
+(242, 'App\\Models\\User', 1, 'token', 'e01e3951a743d78eb1f546f929393d2c9a514f2ea5159051e0ce388e3dac445a', '[\"*\"]', '2025-08-11 07:01:54', NULL, '2025-08-11 06:59:41', '2025-08-11 07:01:54'),
+(243, 'App\\Models\\User', 1, 'token', 'ef0e3ee170e3ba66394518ba5f39034f88962da17e4ab8ee0ef0dfea7b267952', '[\"*\"]', '2025-08-29 12:46:09', NULL, '2025-08-29 12:44:08', '2025-08-29 12:46:09'),
+(244, 'App\\Models\\User', 1, 'token', '20fb046c7bbb4c75d1a4a1cfb02f46133aabec1b9871d53f6879e4541556cb85', '[\"*\"]', '2025-09-08 10:51:26', NULL, '2025-09-08 10:50:46', '2025-09-08 10:51:26'),
+(245, 'App\\Models\\User', 1, 'token', '81f450266498ddc5b2b841a76336340baedbc9f9520eab2e0df5c33312bd7456', '[\"*\"]', '2025-09-13 11:11:04', NULL, '2025-09-13 10:36:47', '2025-09-13 11:11:04'),
+(246, 'App\\Models\\User', 1, 'token', '03b6f490e830186f764148f7051f7c231af0556b2633df1b55abaa78b97b1fbd', '[\"*\"]', '2025-09-13 15:13:14', NULL, '2025-09-13 13:45:09', '2025-09-13 15:13:14'),
+(247, 'App\\Models\\User', 1, 'token', 'a8e3613bd4d50728387a4857f6fe2a6ef6102fdc8bd3a15178c8f46f716890f4', '[\"*\"]', '2025-09-13 17:49:55', NULL, '2025-09-13 15:57:35', '2025-09-13 17:49:55'),
+(248, 'App\\Models\\User', 1, 'token', '8d0d18122dcd16bf9b0b46263c5548271e914f94c2cba0a0384a6fd2462757b4', '[\"*\"]', '2025-09-14 12:50:14', NULL, '2025-09-14 10:50:31', '2025-09-14 12:50:14'),
+(249, 'App\\Models\\User', 1, 'token', 'ed9f9615fa077727640ab00c7fe446b2d941135abae81d7786e193e409b441e4', '[\"*\"]', '2025-09-14 13:22:51', NULL, '2025-09-14 12:51:30', '2025-09-14 13:22:51'),
+(253, 'App\\Models\\User', 1, 'token', 'f8811b5a1c61eee66f89b755e01411fccb9e2112985416e4cf69b0d20555ed67', '[\"*\"]', '2025-09-14 13:34:21', NULL, '2025-09-14 13:30:11', '2025-09-14 13:34:21'),
+(254, 'App\\Models\\User', 1, 'token', '03d241ddc8ee9ee5660ef8fa8ce81fbaffcff952af0858556244fc20d316c378', '[\"*\"]', '2025-09-14 16:48:41', NULL, '2025-09-14 16:36:16', '2025-09-14 16:48:41'),
+(255, 'App\\Models\\User', 1, 'token', '49b9bd1c7972832123d96ad591af4ddc111b9f480122ac770ee743716a4db7a6', '[\"*\"]', '2025-09-14 18:52:19', NULL, '2025-09-14 18:49:56', '2025-09-14 18:52:19'),
+(256, 'App\\Models\\User', 1, 'token', 'ef57b7a1e2b1c1cd967eeb6dfba742eb676b68107d96290f846c6c9ffc204e16', '[\"*\"]', '2025-09-15 10:02:06', NULL, '2025-09-15 10:02:05', '2025-09-15 10:02:06'),
+(257, 'App\\Models\\User', 1, 'token', '4ec1a1dd7ac865d3172a7c6eea6cd5443f5ee22b45a4a45ed0b1131c167b4e79', '[\"*\"]', '2025-09-15 10:29:50', NULL, '2025-09-15 10:03:18', '2025-09-15 10:29:50');
 
 -- --------------------------------------------------------
 
@@ -1688,6 +1710,7 @@ INSERT INTO `role_has_permissions` (`permission_id`, `role_id`) VALUES
 (21, 1),
 (23, 1),
 (24, 1),
+(28, 1),
 (4, 8),
 (7, 8),
 (8, 8),
@@ -6147,6 +6170,194 @@ INSERT INTO `states` (`id`, `name`, `country_id`, `created_at`, `updated_at`) VA
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `stock_movements`
+--
+
+DROP TABLE IF EXISTS `stock_movements`;
+CREATE TABLE IF NOT EXISTS `stock_movements` (
+  `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT,
+  `product_id` bigint UNSIGNED NOT NULL,
+  `warehouse_id` bigint UNSIGNED NOT NULL,
+  `movement_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `quantity` decimal(15,2) NOT NULL,
+  `unit_price` decimal(15,2) NOT NULL,
+  `total_price` decimal(15,2) NOT NULL,
+  `reference_type` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `reference_id` bigint UNSIGNED DEFAULT NULL,
+  `notes` text COLLATE utf8mb4_unicode_ci,
+  `movement_date` date NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `stock_movements_warehouse_id_foreign` (`warehouse_id`),
+  KEY `stock_movements_product_id_warehouse_id_index` (`product_id`,`warehouse_id`),
+  KEY `stock_movements_movement_type_index` (`movement_type`(250)),
+  KEY `stock_movements_movement_date_index` (`movement_date`),
+  KEY `stock_movements_reference_type_index` (`reference_type`(250))
+) ENGINE=MyISAM AUTO_INCREMENT=154 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `stock_movements`
+--
+
+INSERT INTO `stock_movements` (`id`, `product_id`, `warehouse_id`, `movement_type`, `quantity`, `unit_price`, `total_price`, `reference_type`, `reference_id`, `notes`, `movement_date`, `created_at`, `updated_at`) VALUES
+(1, 25, 3, 'initial', 19.00, 3.50, 66.50, NULL, NULL, 'Stock initial pour Kibanda', '2025-07-16', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(2, 25, 3, 'purchase', 17.00, 3.99, 67.83, NULL, NULL, 'Achat 1 pour Kibanda', '2025-08-24', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(3, 25, 3, 'purchase', 6.00, 3.29, 19.74, NULL, NULL, 'Achat 2 pour Kibanda', '2025-08-17', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(4, 25, 3, 'purchase', 10.00, 4.03, 40.25, NULL, NULL, 'Achat 3 pour Kibanda', '2025-08-26', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(5, 25, 3, 'sale', 5.00, 4.90, 24.50, NULL, NULL, 'Vente 1 pour Kibanda', '2025-09-03', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(6, 26, 3, 'initial', 70.00, 4.00, 280.00, NULL, NULL, 'Stock initial pour Kibanda', '2025-07-16', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(7, 26, 3, 'purchase', 20.00, 4.32, 86.40, NULL, NULL, 'Achat 1 pour Kibanda', '2025-08-30', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(8, 26, 3, 'purchase', 10.00, 4.36, 43.60, NULL, NULL, 'Achat 2 pour Kibanda', '2025-08-04', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(9, 26, 3, 'sale', 14.00, 5.52, 77.28, NULL, NULL, 'Vente 1 pour Kibanda', '2025-08-23', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(10, 26, 3, 'sale', 15.00, 5.04, 75.60, NULL, NULL, 'Vente 2 pour Kibanda', '2025-08-16', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(11, 26, 3, 'sale', 13.00, 5.72, 74.36, NULL, NULL, 'Vente 3 pour Kibanda', '2025-09-10', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(12, 27, 3, 'initial', 31.00, 5.00, 155.00, NULL, NULL, 'Stock initial pour Kibanda', '2025-07-16', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(13, 27, 3, 'purchase', 21.00, 5.60, 117.60, NULL, NULL, 'Achat 1 pour Kibanda', '2025-08-24', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(14, 27, 3, 'purchase', 19.00, 4.30, 81.70, NULL, NULL, 'Achat 2 pour Kibanda', '2025-09-12', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(15, 27, 3, 'purchase', 18.00, 4.20, 75.60, NULL, NULL, 'Achat 3 pour Kibanda', '2025-08-07', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(16, 27, 3, 'sale', 8.00, 7.15, 57.20, NULL, NULL, 'Vente 1 pour Kibanda', '2025-08-29', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(17, 27, 3, 'sale', 14.00, 6.00, 84.00, NULL, NULL, 'Vente 2 pour Kibanda', '2025-09-11', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(18, 28, 3, 'initial', 48.00, 6.00, 288.00, NULL, NULL, 'Stock initial pour Kibanda', '2025-07-16', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(19, 28, 3, 'purchase', 21.00, 6.90, 144.90, NULL, NULL, 'Achat 1 pour Kibanda', '2025-09-06', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(20, 28, 3, 'purchase', 7.00, 6.12, 42.84, NULL, NULL, 'Achat 2 pour Kibanda', '2025-08-28', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(21, 28, 3, 'sale', 9.00, 7.92, 71.28, NULL, NULL, 'Vente 1 pour Kibanda', '2025-08-16', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(22, 29, 3, 'initial', 21.00, 2.00, 42.00, NULL, NULL, 'Stock initial pour Kibanda', '2025-07-16', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(23, 29, 3, 'purchase', 13.00, 2.12, 27.56, NULL, NULL, 'Achat 1 pour Kibanda', '2025-09-07', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(24, 29, 3, 'purchase', 7.00, 2.38, 16.66, NULL, NULL, 'Achat 2 pour Kibanda', '2025-08-09', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(25, 29, 3, 'sale', 11.00, 2.42, 26.62, NULL, NULL, 'Vente 1 pour Kibanda', '2025-08-16', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(26, 29, 3, 'sale', 5.00, 2.52, 12.60, NULL, NULL, 'Vente 2 pour Kibanda', '2025-09-01', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(27, 29, 3, 'sale', 10.00, 2.74, 27.40, NULL, NULL, 'Vente 3 pour Kibanda', '2025-08-27', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(28, 30, 3, 'initial', 55.00, 5.00, 275.00, NULL, NULL, 'Stock initial pour Kibanda', '2025-07-16', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(29, 30, 3, 'purchase', 18.00, 4.20, 75.60, NULL, NULL, 'Achat 1 pour Kibanda', '2025-09-13', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(30, 30, 3, 'purchase', 9.00, 4.00, 36.00, NULL, NULL, 'Achat 2 pour Kibanda', '2025-09-12', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(31, 30, 3, 'purchase', 17.00, 4.85, 82.45, NULL, NULL, 'Achat 3 pour Kibanda', '2025-08-19', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(32, 30, 3, 'sale', 11.00, 7.35, 80.85, NULL, NULL, 'Vente 1 pour Kibanda', '2025-08-16', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(33, 30, 3, 'sale', 13.00, 6.25, 81.25, NULL, NULL, 'Vente 2 pour Kibanda', '2025-08-29', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(34, 31, 3, 'initial', 60.00, 2.00, 120.00, NULL, NULL, 'Stock initial pour Kibanda', '2025-07-16', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(35, 31, 3, 'purchase', 7.00, 1.66, 11.62, NULL, NULL, 'Achat 1 pour Kibanda', '2025-08-29', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(36, 31, 3, 'purchase', 15.00, 2.40, 36.00, NULL, NULL, 'Achat 2 pour Kibanda', '2025-09-08', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(37, 31, 3, 'purchase', 7.00, 1.92, 13.44, NULL, NULL, 'Achat 3 pour Kibanda', '2025-09-04', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(38, 31, 3, 'purchase', 12.00, 2.20, 26.40, NULL, NULL, 'Achat 4 pour Kibanda', '2025-09-07', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(39, 31, 3, 'sale', 2.00, 2.70, 5.40, NULL, NULL, 'Vente 1 pour Kibanda', '2025-09-02', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(40, 32, 3, 'initial', 79.00, 6.00, 474.00, NULL, NULL, 'Stock initial pour Kibanda', '2025-07-16', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(41, 32, 3, 'purchase', 10.00, 6.78, 67.80, NULL, NULL, 'Achat 1 pour Kibanda', '2025-08-16', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(42, 32, 3, 'purchase', 25.00, 4.92, 123.00, NULL, NULL, 'Achat 2 pour Kibanda', '2025-09-06', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(43, 32, 3, 'purchase', 8.00, 4.80, 38.40, NULL, NULL, 'Achat 3 pour Kibanda', '2025-09-02', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(44, 32, 3, 'sale', 13.00, 7.92, 102.96, NULL, NULL, 'Vente 1 pour Kibanda', '2025-09-03', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(45, 33, 3, 'initial', 20.00, 10.00, 200.00, NULL, NULL, 'Stock initial pour Kibanda', '2025-07-16', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(46, 33, 3, 'purchase', 17.00, 11.90, 202.30, NULL, NULL, 'Achat 1 pour Kibanda', '2025-08-03', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(47, 33, 3, 'purchase', 24.00, 9.30, 223.20, NULL, NULL, 'Achat 2 pour Kibanda', '2025-08-01', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(48, 33, 3, 'purchase', 23.00, 9.60, 220.80, NULL, NULL, 'Achat 3 pour Kibanda', '2025-09-08', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(49, 33, 3, 'sale', 2.00, 12.20, 24.40, NULL, NULL, 'Vente 1 pour Kibanda', '2025-09-06', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(50, 33, 3, 'sale', 7.00, 12.90, 90.30, NULL, NULL, 'Vente 2 pour Kibanda', '2025-09-07', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(51, 34, 3, 'initial', 31.00, 7.00, 217.00, NULL, NULL, 'Stock initial pour Kibanda', '2025-07-16', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(52, 34, 3, 'purchase', 22.00, 6.72, 147.84, NULL, NULL, 'Achat 1 pour Kibanda', '2025-09-04', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(53, 34, 3, 'purchase', 16.00, 7.98, 127.68, NULL, NULL, 'Achat 2 pour Kibanda', '2025-08-19', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(54, 34, 3, 'purchase', 18.00, 8.33, 149.94, NULL, NULL, 'Achat 3 pour Kibanda', '2025-08-10', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(55, 34, 3, 'sale', 2.00, 10.15, 20.30, NULL, NULL, 'Vente 1 pour Kibanda', '2025-08-15', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(56, 35, 3, 'initial', 94.00, 10.00, 940.00, NULL, NULL, 'Stock initial pour Kibanda', '2025-07-16', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(57, 35, 3, 'purchase', 5.00, 9.50, 47.50, NULL, NULL, 'Achat 1 pour Kibanda', '2025-08-03', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(58, 35, 3, 'purchase', 12.00, 8.60, 103.20, NULL, NULL, 'Achat 2 pour Kibanda', '2025-09-10', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(59, 35, 3, 'sale', 15.00, 13.90, 208.50, NULL, NULL, 'Vente 1 pour Kibanda', '2025-08-23', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(60, 35, 3, 'sale', 2.00, 13.00, 26.00, NULL, NULL, 'Vente 2 pour Kibanda', '2025-08-31', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(61, 36, 3, 'initial', 24.00, 15.00, 360.00, NULL, NULL, 'Stock initial pour Kibanda', '2025-07-16', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(62, 36, 3, 'purchase', 22.00, 14.70, 323.40, NULL, NULL, 'Achat 1 pour Kibanda', '2025-07-30', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(63, 36, 3, 'purchase', 14.00, 13.05, 182.70, NULL, NULL, 'Achat 2 pour Kibanda', '2025-08-28', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(64, 36, 3, 'purchase', 21.00, 12.15, 255.15, NULL, NULL, 'Achat 3 pour Kibanda', '2025-08-13', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(65, 36, 3, 'sale', 11.00, 20.55, 226.05, NULL, NULL, 'Vente 1 pour Kibanda', '2025-09-02', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(66, 36, 3, 'sale', 5.00, 22.05, 110.25, NULL, NULL, 'Vente 2 pour Kibanda', '2025-08-31', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(67, 37, 3, 'initial', 82.00, 1.00, 82.00, NULL, NULL, 'Stock initial pour Kibanda', '2025-07-16', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(68, 37, 3, 'purchase', 8.00, 0.97, 7.76, NULL, NULL, 'Achat 1 pour Kibanda', '2025-09-06', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(69, 37, 3, 'purchase', 9.00, 1.06, 9.54, NULL, NULL, 'Achat 2 pour Kibanda', '2025-07-29', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(70, 37, 3, 'sale', 12.00, 1.47, 17.64, NULL, NULL, 'Vente 1 pour Kibanda', '2025-08-16', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(71, 37, 3, 'sale', 15.00, 1.22, 18.30, NULL, NULL, 'Vente 2 pour Kibanda', '2025-09-03', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(72, 37, 3, 'sale', 9.00, 1.43, 12.87, NULL, NULL, 'Vente 3 pour Kibanda', '2025-08-24', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(73, 38, 3, 'initial', 64.00, 1.50, 96.00, NULL, NULL, 'Stock initial pour Kibanda', '2025-07-16', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(74, 38, 3, 'purchase', 22.00, 1.31, 28.71, NULL, NULL, 'Achat 1 pour Kibanda', '2025-09-11', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(75, 38, 3, 'purchase', 5.00, 1.43, 7.13, NULL, NULL, 'Achat 2 pour Kibanda', '2025-08-17', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(76, 38, 3, 'purchase', 16.00, 1.64, 26.16, NULL, NULL, 'Achat 3 pour Kibanda', '2025-07-30', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(77, 38, 3, 'purchase', 20.00, 1.28, 25.50, NULL, NULL, 'Achat 4 pour Kibanda', '2025-09-13', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(78, 38, 3, 'sale', 2.00, 2.24, 4.47, NULL, NULL, 'Vente 1 pour Kibanda', '2025-09-12', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(79, 38, 3, 'sale', 11.00, 2.25, 24.75, NULL, NULL, 'Vente 2 pour Kibanda', '2025-09-09', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(80, 39, 4, 'initial', 58.00, 2.00, 116.00, NULL, NULL, 'Stock initial pour Kibabi', '2025-07-16', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(81, 39, 4, 'purchase', 20.00, 1.98, 39.60, NULL, NULL, 'Achat 1 pour Kibabi', '2025-09-07', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(82, 39, 4, 'purchase', 18.00, 1.78, 32.04, NULL, NULL, 'Achat 2 pour Kibabi', '2025-08-02', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(83, 39, 4, 'sale', 5.00, 2.50, 12.50, NULL, NULL, 'Vente 1 pour Kibabi', '2025-09-03', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(84, 40, 4, 'initial', 24.00, 2.00, 48.00, NULL, NULL, 'Stock initial pour Kibabi', '2025-07-16', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(85, 40, 4, 'purchase', 11.00, 2.16, 23.76, NULL, NULL, 'Achat 1 pour Kibabi', '2025-07-27', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(86, 40, 4, 'purchase', 23.00, 2.04, 46.92, NULL, NULL, 'Achat 2 pour Kibabi', '2025-08-29', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(87, 40, 4, 'purchase', 20.00, 1.60, 32.00, NULL, NULL, 'Achat 3 pour Kibabi', '2025-08-05', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(88, 40, 4, 'sale', 4.00, 2.50, 10.00, NULL, NULL, 'Vente 1 pour Kibabi', '2025-08-16', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(89, 40, 4, 'sale', 13.00, 2.62, 34.06, NULL, NULL, 'Vente 2 pour Kibabi', '2025-08-20', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(90, 41, 4, 'initial', 77.00, 2.50, 192.50, NULL, NULL, 'Stock initial pour Kibabi', '2025-07-16', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(91, 41, 4, 'purchase', 17.00, 2.53, 42.93, NULL, NULL, 'Achat 1 pour Kibabi', '2025-07-29', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(92, 41, 4, 'purchase', 8.00, 2.25, 18.00, NULL, NULL, 'Achat 2 pour Kibabi', '2025-08-18', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(93, 41, 4, 'sale', 14.00, 3.65, 51.10, NULL, NULL, 'Vente 1 pour Kibabi', '2025-08-30', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(94, 41, 4, 'sale', 9.00, 3.10, 27.90, NULL, NULL, 'Vente 2 pour Kibabi', '2025-08-28', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(95, 41, 4, 'sale', 11.00, 3.00, 33.00, NULL, NULL, 'Vente 3 pour Kibabi', '2025-08-16', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(96, 42, 4, 'initial', 82.00, 2.00, 164.00, NULL, NULL, 'Stock initial pour Kibabi', '2025-07-16', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(97, 42, 4, 'purchase', 10.00, 2.22, 22.20, NULL, NULL, 'Achat 1 pour Kibabi', '2025-09-02', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(98, 42, 4, 'purchase', 25.00, 1.72, 43.00, NULL, NULL, 'Achat 2 pour Kibabi', '2025-09-09', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(99, 42, 4, 'sale', 6.00, 2.96, 17.76, NULL, NULL, 'Vente 1 pour Kibabi', '2025-09-11', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(100, 42, 4, 'sale', 13.00, 2.68, 34.84, NULL, NULL, 'Vente 2 pour Kibabi', '2025-08-23', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(101, 42, 4, 'sale', 7.00, 2.70, 18.90, NULL, NULL, 'Vente 3 pour Kibabi', '2025-09-04', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(102, 43, 4, 'initial', 30.00, 2.00, 60.00, NULL, NULL, 'Stock initial pour Kibabi', '2025-07-16', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(103, 43, 4, 'purchase', 25.00, 2.20, 55.00, NULL, NULL, 'Achat 1 pour Kibabi', '2025-08-23', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(104, 43, 4, 'purchase', 24.00, 1.94, 46.56, NULL, NULL, 'Achat 2 pour Kibabi', '2025-08-13', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(105, 43, 4, 'sale', 9.00, 2.64, 23.76, NULL, NULL, 'Vente 1 pour Kibabi', '2025-09-01', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(106, 43, 4, 'sale', 9.00, 2.64, 23.76, NULL, NULL, 'Vente 2 pour Kibabi', '2025-09-11', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(107, 43, 4, 'sale', 14.00, 2.70, 37.80, NULL, NULL, 'Vente 3 pour Kibabi', '2025-08-30', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(108, 44, 4, 'initial', 34.00, 25.00, 850.00, NULL, NULL, 'Stock initial pour Kibabi', '2025-07-16', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(109, 44, 4, 'purchase', 15.00, 27.75, 416.25, NULL, NULL, 'Achat 1 pour Kibabi', '2025-09-08', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(110, 44, 4, 'purchase', 9.00, 20.25, 182.25, NULL, NULL, 'Achat 2 pour Kibabi', '2025-09-05', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(111, 44, 4, 'sale', 11.00, 36.50, 401.50, NULL, NULL, 'Vente 1 pour Kibabi', '2025-09-07', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(112, 44, 4, 'sale', 11.00, 36.00, 396.00, NULL, NULL, 'Vente 2 pour Kibabi', '2025-08-15', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(113, 45, 4, 'initial', 46.00, 30.00, 1380.00, NULL, NULL, 'Stock initial pour Kibabi', '2025-07-16', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(114, 45, 4, 'purchase', 22.00, 33.00, 726.00, NULL, NULL, 'Achat 1 pour Kibabi', '2025-08-27', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(115, 45, 4, 'purchase', 6.00, 24.30, 145.80, NULL, NULL, 'Achat 2 pour Kibabi', '2025-08-31', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(116, 45, 4, 'purchase', 7.00, 24.00, 168.00, NULL, NULL, 'Achat 3 pour Kibabi', '2025-07-26', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(117, 45, 4, 'sale', 5.00, 42.90, 214.50, NULL, NULL, 'Vente 1 pour Kibabi', '2025-08-30', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(118, 45, 4, 'sale', 8.00, 41.40, 331.20, NULL, NULL, 'Vente 2 pour Kibabi', '2025-08-28', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(119, 45, 4, 'sale', 9.00, 42.00, 378.00, NULL, NULL, 'Vente 3 pour Kibabi', '2025-08-25', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(120, 46, 4, 'initial', 65.00, 2.00, 130.00, NULL, NULL, 'Stock initial pour Kibabi', '2025-07-16', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(121, 46, 4, 'purchase', 23.00, 1.74, 40.02, NULL, NULL, 'Achat 1 pour Kibabi', '2025-08-23', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(122, 46, 4, 'purchase', 8.00, 1.82, 14.56, NULL, NULL, 'Achat 2 pour Kibabi', '2025-08-21', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(123, 46, 4, 'sale', 13.00, 2.92, 37.96, NULL, NULL, 'Vente 1 pour Kibabi', '2025-08-21', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(124, 47, 4, 'initial', 30.00, 3.00, 90.00, NULL, NULL, 'Stock initial pour Kibabi', '2025-07-16', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(125, 47, 4, 'purchase', 15.00, 2.70, 40.50, NULL, NULL, 'Achat 1 pour Kibabi', '2025-08-25', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(126, 47, 4, 'purchase', 9.00, 3.42, 30.78, NULL, NULL, 'Achat 2 pour Kibabi', '2025-08-23', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(127, 47, 4, 'purchase', 17.00, 2.43, 41.31, NULL, NULL, 'Achat 3 pour Kibabi', '2025-08-30', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(128, 47, 4, 'sale', 4.00, 4.32, 17.28, NULL, NULL, 'Vente 1 pour Kibabi', '2025-08-24', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(129, 48, 4, 'initial', 79.00, 5.00, 395.00, NULL, NULL, 'Stock initial pour Kibabi', '2025-07-16', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(130, 48, 4, 'purchase', 25.00, 5.40, 135.00, NULL, NULL, 'Achat 1 pour Kibabi', '2025-09-03', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(131, 48, 4, 'purchase', 7.00, 5.60, 39.20, NULL, NULL, 'Achat 2 pour Kibabi', '2025-09-06', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(132, 48, 4, 'purchase', 9.00, 4.05, 36.45, NULL, NULL, 'Achat 3 pour Kibabi', '2025-08-13', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(133, 48, 4, 'sale', 5.00, 7.10, 35.50, NULL, NULL, 'Vente 1 pour Kibabi', '2025-08-21', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(134, 48, 4, 'sale', 5.00, 6.25, 31.25, NULL, NULL, 'Vente 2 pour Kibabi', '2025-09-10', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(135, 51, 4, 'initial', 12.00, 35.00, 420.00, NULL, NULL, 'Stock initial pour Kibabi', '2025-07-16', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(136, 51, 4, 'purchase', 12.00, 31.85, 382.20, NULL, NULL, 'Achat 1 pour Kibabi', '2025-08-05', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(137, 51, 4, 'purchase', 15.00, 39.20, 588.00, NULL, NULL, 'Achat 2 pour Kibabi', '2025-07-30', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(138, 51, 4, 'purchase', 5.00, 29.75, 148.75, NULL, NULL, 'Achat 3 pour Kibabi', '2025-09-02', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(139, 51, 4, 'sale', 12.00, 43.40, 520.80, NULL, NULL, 'Vente 1 pour Kibabi', '2025-08-15', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(140, 52, 4, 'initial', 26.00, 30.00, 780.00, NULL, NULL, 'Stock initial pour Kibabi', '2025-07-16', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(141, 52, 4, 'purchase', 19.00, 30.30, 575.70, NULL, NULL, 'Achat 1 pour Kibabi', '2025-08-27', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(142, 52, 4, 'purchase', 16.00, 31.80, 508.80, NULL, NULL, 'Achat 2 pour Kibabi', '2025-07-26', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(143, 52, 4, 'purchase', 12.00, 27.90, 334.80, NULL, NULL, 'Achat 3 pour Kibabi', '2025-08-09', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(144, 52, 4, 'sale', 9.00, 37.80, 340.20, NULL, NULL, 'Vente 1 pour Kibabi', '2025-09-04', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(145, 53, 4, 'initial', 44.00, 35.00, 1540.00, NULL, NULL, 'Stock initial pour Kibabi', '2025-07-16', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(146, 53, 4, 'purchase', 16.00, 36.05, 576.80, NULL, NULL, 'Achat 1 pour Kibabi', '2025-09-02', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(147, 53, 4, 'purchase', 12.00, 36.75, 441.00, NULL, NULL, 'Achat 2 pour Kibabi', '2025-08-10', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(148, 53, 4, 'sale', 11.00, 42.70, 469.70, NULL, NULL, 'Vente 1 pour Kibabi', '2025-08-18', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(149, 54, 4, 'initial', 84.00, 40.00, 3360.00, NULL, NULL, 'Stock initial pour Kibabi', '2025-07-16', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(150, 54, 4, 'purchase', 24.00, 47.20, 1132.80, NULL, NULL, 'Achat 1 pour Kibabi', '2025-08-10', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(151, 54, 4, 'purchase', 16.00, 36.40, 582.40, NULL, NULL, 'Achat 2 pour Kibabi', '2025-08-03', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(152, 54, 4, 'sale', 2.00, 56.40, 112.80, NULL, NULL, 'Vente 1 pour Kibabi', '2025-09-06', '2025-09-14 12:46:43', '2025-09-14 12:46:43'),
+(153, 54, 4, 'sale', 7.00, 54.80, 383.60, NULL, NULL, 'Vente 2 pour Kibabi', '2025-09-09', '2025-09-14 12:46:43', '2025-09-14 12:46:43');
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `suppliers`
 --
 
@@ -6311,7 +6522,7 @@ INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `phone`, `email_v
 (13, 'Raphaël', 'Kasongo', 'didinamukuzo@icloud.com', '0995123831', NULL, '$2y$10$2ySsLkee.sGXyrqCZNWJgeBfOriAEu3gSTHhDVrPFRlhrqe7NdzMW', NULL, '2025-07-21 19:25:46', '2025-07-22 17:58:35', 1, 'fr'),
 (14, 'Robert', 'Kabangwa', 'kabangwarobert900@gmail.com', '0977512619', NULL, '$2y$10$AKsaKVSjXYQwy9m.nVMsluxULFvgBP6A8I8C5tHK9B6cqyYlgS4zy', NULL, '2025-07-21 19:29:00', '2025-07-22 17:58:27', 1, 'fr'),
 (15, 'Herman', 'Shati', 'jeanhermanshamavu@gmail.com', '0990052966', NULL, '$2y$10$MENZLV8Kbpjd.Dl8La4kXOnFd7MLwX9UBMmyHFbOK3xHfFteyLSfS', 'e5jlgaxrdYKPoV7U6E1dn0iI3pXl2Kzm8AdeupKEZGO9zNo1fU4mB1ckjv9R', '2025-07-21 19:48:47', '2025-07-24 13:16:55', 1, 'en'),
-(21, 'Admin', '-', 'admin@standard.com', '114', NULL, '$2y$10$n6Hltk5m603eJat.Xa4SPe3Q23S4.O7xAbFrJUOjT2iico2GpSlHy', NULL, '2025-08-03 02:42:35', '2025-08-03 02:42:35', 1, 'en');
+(21, 'Admin', '-', 'admin@standard.com', '114', NULL, '$2y$10$n6Hltk5m603eJat.Xa4SPe3Q23S4.O7xAbFrJUOjT2iico2GpSlHy', NULL, '2025-08-03 02:42:35', '2025-08-03 03:04:48', 1, 'fr');
 
 -- --------------------------------------------------------
 

@@ -36,6 +36,7 @@ use App\Http\Controllers\API\UserAPIController;
 use App\Http\Controllers\API\WarehouseAPIController;
 use App\Http\Controllers\API\VariationAPIController;
 use App\Http\Controllers\MailTemplateAPIController;
+use App\Http\Controllers\StockReportController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -402,6 +403,13 @@ Route::middleware('auth:sanctum')->group(function () {
 
     // Coupon Code Routes
     Route::resource('coupon-codes', CouponCodeAPIController::class);
+
+    // Stock Report Routes
+    Route::get('stock-report/products', [StockReportController::class, 'getProducts']);
+    Route::get('stock-report/warehouses', [StockReportController::class, 'getWarehouses']);
+    Route::post('stock-report/generate', [StockReportController::class, 'generateStockReport']);
+    Route::post('stock-report/export-pdf', [StockReportController::class, 'exportPdf']);
+    Route::post('stock-report/export-excel', [StockReportController::class, 'exportExcel']);
 });
 
 Route::post('login', [AuthController::class, 'login'])->name('login');

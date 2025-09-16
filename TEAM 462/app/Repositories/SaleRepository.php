@@ -97,10 +97,18 @@ class SaleRepository extends BaseRepository
             foreach ($input['sale_items'] as $saleItem) {
                 $product = ManageStock::whereWarehouseId($input['warehouse_id'])->whereProductId($saleItem['product_id'])->first();
                 if ($product && $product->quantity >= $saleItem['quantity']) {
-                    $totalQuantity = $product->quantity - $saleItem['quantity'];
-                    $product->update([
-                        'quantity' => $totalQuantity,
-                    ]);
+                    // Créer le mouvement de sortie avec le prix de vente
+                    manageStockWithMovement(
+                        $input['warehouse_id'], 
+                        $saleItem['product_id'], 
+                        -$saleItem['quantity'], // Négatif pour une sortie
+                        'sale',
+                        $saleItem['product_price'] ?? $saleItem['net_unit_price'] ?? 0,
+                        'Sale',
+                        $sale->id,
+                        'Vente automatique',
+                        $input['date'] ?? date('Y-m-d')
+                    );
                 } else {
                     throw new UnprocessableEntityHttpException('Quantity must be less than Available quantity.');
                 }

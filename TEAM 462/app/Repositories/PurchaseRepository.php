@@ -84,9 +84,19 @@ class PurchaseRepository extends BaseRepository
 
             $purchase = $this->storePurchaseItems($purchase, $input);
 
-            // manage stock
+            // manage stock with movements
             foreach ($input['purchase_items'] as $purchaseItem) {
-                manageStock($input['warehouse_id'], $purchaseItem['product_id'], $purchaseItem['quantity']);
+                manageStockWithMovement(
+                    $input['warehouse_id'], 
+                    $purchaseItem['product_id'], 
+                    $purchaseItem['quantity'],
+                    'purchase',
+                    $purchaseItem['net_unit_cost'] ?? $purchaseItem['product_cost'] ?? 0,
+                    'Purchase',
+                    $purchase->id,
+                    'Achat automatique',
+                    $input['date'] ?? date('Y-m-d')
+                );
             }
 
             DB::commit();
@@ -215,8 +225,18 @@ class PurchaseRepository extends BaseRepository
                         'sub_total',
                     ]);
                     $purchase->purchaseItems()->create($purchaseItemArr);
-                    // manage new product
-                    manageStock($input['warehouse_id'], $purchaseItem['product_id'], $purchaseItem['quantity']);
+                    // manage new product with movement
+                    manageStockWithMovement(
+                        $input['warehouse_id'], 
+                        $purchaseItem['product_id'], 
+                        $purchaseItem['quantity'],
+                        'purchase',
+                        $purchaseItem['net_unit_cost'] ?? $purchaseItem['product_cost'] ?? 0,
+                        'Purchase',
+                        $purchase->id,
+                        'Achat automatique (mise à jour)',
+                        $input['date'] ?? date('Y-m-d')
+                    );
                 }
             }
             $removeItemIds = array_diff($purchaseItemIds, $purchaseItmOldIds);

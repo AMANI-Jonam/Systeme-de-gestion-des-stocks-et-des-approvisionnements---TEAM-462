@@ -1,38 +1,57 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "//www.w3.org/TR/html4/strict.dtd">
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title> Sale return report pdf</title>
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/favicon.ico') }}">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <!-- Fonts -->
-    <!-- General CSS Files -->
-    <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css"/>
+    <meta charset="utf-8">
+    <title>Fiche de Stock - {{ $product->name }}</title>
 </head>
 <body>
-<table width="100%" cellspacing="0" cellpadding="10" style="margin-top: 40px;">
-    <thead>
-    <tr style="background-color: dodgerblue;">
-        <th style="width: 200%">{{ __('messages.pdf.warehouse') }}</th>
-        <th style="width: 200%">{{ __('messages.pdf.code') }}</th>
-        <th style="width: 300%">{{ __('messages.pdf.name') }}</th>
-        <th style="width: 200%">{{ __('messages.pdf.cost') }}</th>
-        <th style="width: 200%">{{ __('messages.pdf.price') }}</th>
-        <th style="width: 250%">{{ __('messages.pdf.current_stock') }}</th>
-    </tr>
-    </thead>
-    <tbody>
-    @foreach($stocks  as $stock)
-        <tr align="center">
-            <td>{{$stock->warehouse->name}}</td>
-            <td>{{$stock->product->code}}</td>
-            <td>{{$stock->product->name}}</td>
-            <td>{{number_format($stock->product->product_cost,2)}}</td>
-            <td>{{number_format($stock->product->product_price,2)}}</td>
-            <td>{{ $stock->quantity }}</td>
+    <table>
+        <tr>
+            <td colspan="11" style="text-align: center; font-size: 16px; font-weight: bold;">
+                FICHE DE STOCK
+            </td>
         </tr>
-    @endforeach
-    </tbody>
-</table>
+        <tr>
+            <td colspan="11" style="text-align: center;">
+                Entrepôt: {{ $warehouse->name }} | Période: {{ \Carbon\Carbon::parse($startDate)->format('d/m/Y') }} - {{ \Carbon\Carbon::parse($endDate)->format('d/m/Y') }}
+            </td>
+        </tr>
+        <tr></tr>
+        
+        <!-- En-têtes -->
+        <tr style="background-color: #f0f0f0; font-weight: bold;">
+            <td style="background-color: #007bff; color: white;">Date</td>
+            <td style="background-color: #007bff; color: white;">Nom du produit</td>
+            <td style="background-color: #007bff; color: white;">Stock initial</td>
+            <td style="background-color: #007bff; color: white;">Entrée</td>
+            <td style="background-color: #007bff; color: white;">Total</td>
+            <td style="background-color: #007bff; color: white;">Sortie</td>
+            <td style="background-color: #007bff; color: white;">Stock final</td>
+            <td style="background-color: #007bff; color: white;">Prix unitaire</td>
+            <td style="background-color: #007bff; color: white;">Prix total</td>
+            <td style="background-color: #007bff; color: white;">Type de mouvement</td>
+            <td style="background-color: #007bff; color: white;">Notes</td>
+        </tr>
+        
+        <!-- Données -->
+        @foreach($movements as $movement)
+        <tr>
+            <td style="background-color: #e3f2fd;">{{ $movement['date'] }}</td>
+            <td style="background-color: #e3f2fd;">{{ $movement['product_name'] }}</td>
+            <td style="text-align: right; background-color: #e3f2fd;">{{ number_format($movement['stock_initial'], 2) }}</td>
+            <td style="text-align: right; background-color: #e3f2fd;">{{ number_format($movement['entree'], 2) }}</td>
+            <td style="text-align: right; background-color: #e3f2fd;">{{ number_format($movement['total'], 2) }}</td>
+            <td style="text-align: right; background-color: #e3f2fd;">{{ number_format($movement['sortie'], 2) }}</td>
+            <td style="text-align: right; background-color: #e3f2fd;">{{ number_format($movement['stock_final'], 2) }}</td>
+            <td style="text-align: right; background-color: #e3f2fd;">{{ number_format($movement['prix_unitaire'], 2) }}</td>
+            <td style="text-align: right; background-color: #e3f2fd;">{{ number_format($movement['prix_total'], 2) }}</td>
+            <td style="background-color: #e3f2fd;">{{ $movement['movement_type'] }}</td>
+            <td style="background-color: #e3f2fd;">{{ $movement['notes'] }}</td>
+        </tr>
+        @endforeach
+        
+        <tr></tr>
+        
+    </table>
 </body>
 </html>

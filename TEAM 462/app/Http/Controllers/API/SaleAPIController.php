@@ -129,7 +129,18 @@ class SaleAPIController extends AppBaseController
             DB::beginTransaction();
             $sale = $this->saleRepository->with('saleItems')->where('id', $id)->first();
             foreach ($sale->saleItems as $saleItem) {
-                manageStock($sale->warehouse_id, $saleItem['product_id'], $saleItem['quantity']);
+                // Créer un mouvement de retour lors de la suppression
+                manageStockWithMovement(
+                    $sale->warehouse_id, 
+                    $saleItem['product_id'], 
+                    $saleItem['quantity'], // Positif pour un retour
+                    'return',
+                    $saleItem['product_price'] ?? $saleItem['net_unit_price'] ?? 0,
+                    'Sale',
+                    $sale->id,
+                    'Retour automatique (suppression vente)',
+                    $sale->date ?? date('Y-m-d')
+                );
             }
             if (File::exists(Storage::path('sales/barcode-' . $sale->reference_code . '.png'))) {
                 File::delete(Storage::path('sales/barcode-' . $sale->reference_code . '.png'));
